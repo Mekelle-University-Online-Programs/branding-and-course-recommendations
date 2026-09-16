@@ -1,0 +1,26 @@
+\chapter{Branding Variables}
+
+Replace every placeholder with approved university values before
+production. Confirm color contrast meets WCAG 2.1 AA.
+
+\begin{longtable}{@{}p{0.22\textwidth}p{0.22\textwidth}p{0.20\textwidth}p{0.26\textwidth}@{}}
+\toprule
+\textbf{Variable} & \textbf{Purpose} & \textbf{Placeholder} & \textbf{Notes} \\
+\midrule
+\endhead
+\texttt{\{\{UNIVERSITY\_NAME\}\}} & Official name & Mekelle University & Confirm English name \\
+\texttt{\{\{LOGO\_URL\}\}} & Primary logo & \texttt{/static/mu-logo.svg} & SVG preferred \\
+\texttt{\{\{PRIMARY\_COLOR\}\}} & Main brand color & \texttt{\#127DAD} & Replace with MU color \\
+\texttt{\{\{SECONDARY\_COLOR\}\}} & Secondary accent & \texttt{\#82CFF0} & Replace with MU color \\
+\texttt{\{\{ACCENT\_COLOR\}\}} & Focus/highlight & \texttt{\#F2A900} & Must pass AA \\
+\texttt{\{\{FONT\_FAMILY\}\}} & Approved font & Arial, Helvetica, sans-serif & Confirm licensing \\
+\texttt{\{\{LINK\_COLOR\}\}} & Hyperlink & \texttt{\#0056B3} & Must pass AA \\
+\texttt{\{\{HEADER\_STYLE\}\}} & Header border & \texttt{border-bottom: 2px solid accent} & Per Appendix B \\
+\texttt{\{\{WARNING\_COLOR\}\}} & Warning callout & \texttt{\#b91c1c} & \\
+\texttt{\{\{SUCCESS\_COLOR\}\}} & Success callout & \texttt{\#15803d} & \\
+\texttt{\{\{FOOTER\_TEXT\}\}} & Footer copyright & \texttt{\copyright\ Mekelle University} & \\
+\texttt{\{\{OPEN\_EDX\_VERSION\}\}} & Platform & Teak & Confirmed \\
+\texttt{\{\{BRAND\_GUIDELINES\}\}} & Brand doc & TBD & Needed before final CSS \\
+\texttt{\{\{CONSTRAINTS\}\}} & IT/a11y policy & WCAG 2.1 AA & Confirm \\
+\bottomrule
+\end{longtable}

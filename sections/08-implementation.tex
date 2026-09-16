@@ -1,0 +1,90 @@
+\chapter{Implementation and QA Checklist}
+
+\section{Step-by-Step Rollout}
+
+\begin{enumerate}
+  \item Complete file intake.
+  \item Approve branding variables (Section 3) with leadership.
+  \item Approve enhanced QA rubric (Section 7) with leadership and ID.
+  \item Populate all \texttt{about/} metadata files.
+  \item Remove all \texttt{[Insert ...]} placeholders.
+  \item Resolve live vs. draft component conflicts.
+  \item Remove embedded \texttt{<style>} blocks and inline styles.
+  \item Apply common CSS to a pilot module.
+  \item Run accessibility and technical QA on pilot.
+  \item Fix all video captions and duplicate YouTube ID.
+  \item Validate all \texttt{problem/*.xml} in Teak.
+  \item Migrate \texttt{video\_iframe} to standard \texttt{video} or confirm install.
+  \item Redesign \texttt{problem1.xml} self-assessment for Teak.
+  \item Run full QA on the course.
+  \item Export to GitHub; run GitHub Pages preview.
+  \item Final sign-off in GitHub Projects.
+  \item Publish.
+  \item Roll out to remaining 13 courses.
+\end{enumerate}
+
+\section{Studio and LMS QA Checklist}
+
+\begin{itemize}
+  \item[$\square$] All \texttt{about/} files populated
+  \item[$\square$] No \texttt{[Insert ...]} placeholders
+  \item[$\square$] No embedded \texttt{<style>} blocks
+  \item[$\square$] No inline \texttt{style="..."} (approved exceptions only)
+  \item[$\square$] No \texttt{contenteditable="true"}
+  \item[$\square$] No \texttt{mso-*} or VML
+  \item[$\square$] No base64 images
+  \item[$\square$] Headings use \texttt{h3}/\texttt{h4}/\texttt{h5}
+  \item[$\square$] Lists use valid \texttt{<ul>}/\texttt{<ol>}
+  \item[$\square$] Callouts use \texttt{.mba-callout}
+  \item[$\square$] References use \texttt{.mba-reference}
+  \item[$\square$] Tables use \texttt{.mba-table} with \texttt{<caption>} and \texttt{<th scope>}
+  \item[$\square$] Images have alt text
+  \item[$\square$] Videos have captions and transcripts
+  \item[$\square$] No duplicate YouTube IDs
+  \item[$\square$] Static links resolve
+  \item[$\square$] \texttt{target="[object Object]"} fixed
+  \item[$\square$] Problem XML validates
+  \item[$\square$] Answer keys are real
+  \item[$\square$] ORA/staff-graded used for essays
+  \item[$\square$] Grading policy \texttt{min\_count} matches counts
+\end{itemize}
+
+\section{Accessibility Checklist (WCAG 2.1 AA)}
+
+\begin{itemize}
+  \item[$\square$] Contrast $\geq 4.5{:}1$ normal, $3{:}1$ large
+  \item[$\square$] Alt text meaningful or empty
+  \item[$\square$] Captions and transcripts
+  \item[$\square$] \texttt{<caption>} and \texttt{<th scope>}
+  \item[$\square$] Iframes have \texttt{title}
+  \item[$\square$] Keyboard-only navigation
+  \item[$\square$] Focus indicators visible
+  \item[$\square$] No reliance on color alone
+  \item[$\square$] Logical heading hierarchy
+  \item[$\square$] Language attributes set
+  \item[$\square$] No autoplay, no keyboard traps
+\end{itemize}
+
+\section{Cross-Browser and Mobile}
+
+\begin{itemize}
+  \item[$\square$] Chrome, Firefox, Safari, Edge
+  \item[$\square$] iOS Safari, Android Chrome
+  \item[$\square$] 360, 768, 1024, 1440 px
+  \item[$\square$] Tables scroll on mobile
+  \item[$\square$] Video player responsive
+\end{itemize}
+
+\section{Cross-Course Validation (14 Courses)}
+
+\begin{itemize}
+  \item[$\square$] Same CSS applied
+  \item[$\square$] Same heading hierarchy
+  \item[$\square$] Same callout classes
+  \item[$\square$] Same reference format
+  \item[$\square$] Same assessment presentation
+  \item[$\square$] Same metadata structure
+  \item[$\square$] Same QA rubric applied
+  \item[$\square$] Same GitHub repo structure
+  \item[$\square$] Branding consistency $\geq 4.5/5$
+\end{itemize}

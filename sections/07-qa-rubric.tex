@@ -1,0 +1,46 @@
+\chapter{Enhanced QA Rubric}
+
+The baseline rubric has 9 categories. This recommendation expands it
+to 14. Each category is scored 0--5. Minimum pass threshold:
+\textbf{4.0 weighted average}, with \textbf{no category below 3}.
+
+\begin{longtable}{@{}p{0.06\textwidth}p{0.30\textwidth}p{0.10\textwidth}p{0.44\textwidth}p{0.06\textwidth}@{}}
+\toprule
+\textbf{\#} & \textbf{Category} & \textbf{Baseline?} & \textbf{Key criteria} & \textbf{Weight} \\
+\midrule
+\endhead
+1 & Instructional Design Quality & Yes & Measurable objectives; logical flow; engagement; alignment; UDL & 12\% \\
+2 & Content Accuracy and Relevance & Yes & Accurate, current, error-free; SME sign-off; MBA relevance & 12\% \\
+3 & Accessibility and Inclusivity & Yes & WCAG 2.1 AA: headings, landmarks, alt, tables, contrast, focus, captions, keyboard & 15\% \\
+4 & Technical Quality & Yes & XML valid; no broken links; no base64/VML; mobile; importability & 10\% \\
+5 & Learner Support & Yes & Orientation; navigation; prompts; time-on-task; prerequisites & 5\% \\
+6 & Assessment and Evaluation & Yes & Blueprint coverage; Bloom balance; grading policy; rubric clarity; feedback & 10\% \\
+7 & Ethical and Legal Standards & Yes & Copyright; license; attribution; data privacy & 5\% \\
+8 & Cultural Sensitivity & Yes & Ethiopian/East African context; representation; language & 5\% \\
+9 & Continuous Improvement & Yes & Post-launch cadence; analytics; feedback loop & 3\% \\
+10 & Branding and Visual Identity & New & Logo, palette, typography, header/footer, callouts, tables, images, video & 8\% \\
+11 & GitHub and Version Control & New & Repo structure; commit hygiene; branches; issues; PRs; Pages & 5\% \\
+12 & Open edX Teak Compatibility & New & Component support; \texttt{advanced\_modules}; CSS applied; no VML & 5\% \\
+13 & Course Metadata and Catalog & New & Title, subtitle, description, overview, duration, prerequisites, instructor & 3\% \\
+14 & Data and Analytics Readiness & New & Event tracking; progress page; grading policy; KPIs & 2\% \\
+\bottomrule
+\end{longtable}
+
+\section{Gate Mapping to Roadmap}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Phase} & \textbf{QA gate} & \textbf{Owner} \\
+\midrule
+Phase 3 & Repo structure; export success & Open edX Expert \\
+Phase 4 & Categories 10, 12 & Open edX Expert + Leadership \\
+Phase 5 & Preview renders & Open edX Expert \\
+Phase 6 & Categories 1, 2, 5, 6, 8 & ID + Reviewer \\
+Phase 7 & Categories 3, 4, 12, 13, 14 & Open edX Expert + ICT \\
+Phase 8 & All 14 categories $\geq$ threshold & Reviewer + Leadership \\
+Phase 9 & Course live; monitoring active & Leadership \\
+\bottomrule
+\end{tabular}
+\end{table}

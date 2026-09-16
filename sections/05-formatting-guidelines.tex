@@ -1,0 +1,77 @@
+\chapter{Harmonized Content Formatting Guidelines}
+
+\section{Heading Hierarchy}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Level} & \textbf{Use} & \textbf{Avoid} \\
+\midrule
+\texttt{h3} & Main section in HTML component & \texttt{h2} \\
+\texttt{h4} & Subsection & Bold paragraphs as headings \\
+\texttt{h5} & Minor sub-subsection & Skipping levels \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Lists}
+
+\begin{itemize}
+  \item Use \texttt{<ul>} and \texttt{<ol>}.
+  \item Never \texttt{<ul><ul>...</ul></ul>}.
+  \item Never \texttt{list-style-type: none} to simulate indentation.
+  \item Never manual bullets inside \texttt{<p>}.
+  \item Never \texttt{mso-list} Word markup.
+\end{itemize}
+
+\section{Callouts}
+
+Standard classes: \texttt{.mba-callout.mba-note},
+\texttt{.mba-warning}, \texttt{.mba-important}, \texttt{.mba-definition},
+\texttt{.mba-example}. Never use inline background, border, or color.
+
+\section{Assessments}
+
+\begin{itemize}
+  \item Use \texttt{problem} for quizzes, multiple choice, checkboxes,
+        dropdowns, numerical input, text input.
+  \item Use ORA / \texttt{openassessment} or staff-graded for essays,
+        reports, reflective responses.
+  \item Remove all placeholder text.
+  \item Do not change assessment logic without ID approval.
+  \item \textbf{Teak note:} multiple-choice items with all
+        \texttt{correct="true"} award a point only for the first
+        correct choice. Redesign as survey or poll where appropriate.
+\end{itemize}
+
+\section{Images, Tables, Captions}
+
+\begin{itemize}
+  \item Every image needs \texttt{alt} text or \texttt{alt=""}.
+  \item Use \texttt{<figure>} and \texttt{<figcaption>}.
+  \item Use \texttt{<table class="mba-table">} with \texttt{<caption>}
+        and \texttt{<th scope="col">}.
+  \item Never tables for layout.
+  \item Never base64 images or VML markup.
+\end{itemize}
+
+\section{References}
+
+Use APA 7 with \texttt{.mba-reference} class, hanging indent,
+alphabetical order.
+
+\section{Links}
+
+Descriptive link text only. No ``click here'', no raw URLs, no
+Bing/Google tracking URLs. Fix \texttt{target="[object Object]"}.
+
+\section{Video}
+
+\begin{itemize}
+  \item YouTube unlisted/private per roadmap, unless \texttt{video\_iframe}
+        is officially supported.
+  \item Provide captions and transcripts for every video.
+  \item Fix duplicate YouTube IDs.
+  \item Fix malformed \texttt{display\_name}.
+\end{itemize}

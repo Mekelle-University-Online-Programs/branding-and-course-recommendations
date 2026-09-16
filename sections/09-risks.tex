@@ -1,0 +1,58 @@
+\chapter{Risks, Assumptions, and Open Questions}
+
+\section{Risks}
+
+\begin{longtable}{@{}p{0.05\textwidth}p{0.30\textwidth}p{0.10\textwidth}p{0.10\textwidth}p{0.35\textwidth}@{}}
+\toprule
+\textbf{\#} & \textbf{Risk} & \textbf{Likelihood} & \textbf{Impact} & \textbf{Mitigation} \\
+\midrule
+\endhead
+1 & Course content not yet authored & High & High & Complete Roadmap Phase 1 before Phase 6 \\
+2 & \texttt{video\_iframe} not supported in Teak & High & High & Migrate to standard \texttt{video} \\
+3 & All-correct MCQ awards only first choice in Teak & High & Medium & Redesign as survey/poll \\
+4 & Duplicate YouTube ID & High & Medium & Fix before Phase 7 \\
+5 & Live vs. draft conflicts & High & High & Resolve before cleanup \\
+6 & Empty \texttt{about/} metadata & High & High & Populate before Phase 8 \\
+7 & Cross-course asset contamination & High & Medium & Audit and replace \\
+8 & 13 vs. 14 course scope & Medium & Medium & Confirm with PM \\
+9 & Authors change assessment logic & Medium & High & ID review all changes \\
+10 & Scale to 14 courses & High & High & Common CSS + rubric + exemplar \\
+11 & No captions on any video & High & High & Multimedia remediation \\
+12 & Non-default \texttt{advanced\_modules} & Medium & Medium & Confirm install with Open edX expert \\
+\bottomrule
+\end{longtable}
+
+\section{Assumptions}
+
+\begin{itemize}
+  \item MU is Mekelle University; ASU is Arizona State University;
+        MoE is Ministry of Education; e-SHE is the program.
+  \item \texttt{Online-Course-Material-Development.pdf} is authoritative.
+  \item QA rubric PDF is baseline to be expanded.
+  \item Roadmap Phases 0--9 is the intended workflow.
+  \item RACI in Section 2.3 is authoritative unless amended.
+  \item Target accessibility: WCAG 2.1 AA.
+  \item Course meaning, assessment logic, and learning outcomes must not change.
+  \item Staff-only template chapter stays.
+  \item Scope is 14 courses.
+  \item Platform is Open edX Teak.
+\end{itemize}
+
+\section{Open Questions}
+
+\begin{enumerate}
+  \item 13 or 14 courses? Roadmap is internally inconsistent.
+  \item Is \texttt{course\_wide\_css} enabled in the Teak instance?
+  \item Is \texttt{video\_iframe} installed, or must all videos migrate?
+  \item Are \texttt{drafts/} components in scope?
+  \item Are \texttt{html1}--\texttt{html20} and \texttt{vertical1}--\texttt{vertical6} real content or deletable?
+  \item Replace ASU template tutorials with MU equivalents?
+  \item Is all-correct self-assessment intentional?
+  \item Convert \texttt{cc44e80...} (2{,}000-word report) to ORA?
+  \item Final brand colors, fonts, logo?
+  \item Final publication approval authority?
+  \item Is \texttt{e-she-learning-communities...zip} referenced?
+  \item Is entrance exam enabled?
+  \item Are ASU/T101SBX source blocks still active?
+  \item Which \texttt{advanced\_modules} are actually installed in Teak?
+\end{enumerate}

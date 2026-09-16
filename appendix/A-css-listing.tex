@@ -1,0 +1,227 @@
+\chapter{Common CSS Listing}
+\label{app:css}
+
+\begin{lstlisting}[language=CSS]
+/* ============================================================
+   Mekelle University MBA — Common Course CSS
+   File: mu-mba-brand.css
+   Scope: Open edX Teak course content only.
+   Apply via Studio -> Settings -> Advanced Settings -> course_wide_css
+   Value: /static/mu-mba-brand.css
+   ============================================================ */
+
+:root {
+  --mba-primary: {{PRIMARY_COLOR}};
+  --mba-secondary: {{SECONDARY_COLOR}};
+  --mba-accent: {{ACCENT_COLOR}};
+  --mba-link: {{LINK_COLOR}};
+  --mba-font: {{FONT_FAMILY}};
+  --mba-warning: {{WARNING_COLOR}};
+  --mba-success: {{SUCCESS_COLOR}};
+  --mba-text: #1f2933;
+  --mba-muted: #52606d;
+  --mba-border: #d9e2ec;
+  --mba-note-bg: #f5f7fa;
+  --mba-warning-bg: #fef2f2;
+  --mba-important-bg: #fffbeb;
+  --mba-definition-bg: #f0f9ff;
+  --mba-example-bg: #f9fafb;
+  --mba-radius: 6px;
+  --mba-max-width: 72ch;
+}
+
+.xblock-student_view {
+  font-family: var(--mba-font);
+  color: var(--mba-text);
+  line-height: 1.6;
+}
+
+.xblock-student_view h3,
+.xblock-student_view h4,
+.xblock-student_view h5 {
+  font-family: var(--mba-font);
+  color: var(--mba-primary);
+  line-height: 1.25;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.xblock-student_view h3 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--mba-accent);
+  padding-bottom: 0.25rem;
+}
+
+.xblock-student_view h4 { font-size: 1.25rem; }
+.xblock-student_view h5 { font-size: 1.1rem; }
+
+.xblock-student_view p,
+.xblock-student_view li {
+  max-width: var(--mba-max-width);
+}
+
+.xblock-student_view a {
+  color: var(--mba-link);
+  text-decoration: underline;
+}
+
+.xblock-student_view a:hover,
+.xblock-student_view a:focus {
+  color: var(--mba-primary);
+  text-decoration-thickness: 2px;
+}
+
+.xblock-student_view a:focus-visible {
+  outline: 3px solid var(--mba-accent);
+  outline-offset: 2px;
+}
+
+.xblock-student_view ul,
+.xblock-student_view ol {
+  margin: 0.75rem 0 1rem 1.5rem;
+  padding-left: 1.25rem;
+}
+
+.xblock-student_view li {
+  margin-bottom: 0.35rem;
+}
+
+.xblock-student_view img {
+  max-width: 100%;
+  height: auto;
+}
+
+.xblock-student_view figure.mba-figure {
+  margin: 1.5rem 0;
+}
+
+.xblock-student_view figcaption.mba-caption {
+  font-size: 0.9rem;
+  color: var(--mba-muted);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.xblock-student_view .mba-callout {
+  border-left: 5px solid var(--mba-primary);
+  background: var(--mba-note-bg);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  border-radius: var(--mba-radius);
+}
+
+.xblock-student_view .mba-callout-title {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.xblock-student_view .mba-note      { border-left-color: var(--mba-primary); }
+.xblock-student_view .mba-warning   { border-left-color: var(--mba-warning);  background: var(--mba-warning-bg); }
+.xblock-student_view .mba-important { border-left-color: var(--mba-accent);   background: var(--mba-important-bg); }
+.xblock-student_view .mba-definition{ border-left-color: var(--mba-secondary); background: var(--mba-definition-bg); }
+.xblock-student_view .mba-example   { border-left-color: #6b7280;              background: var(--mba-example-bg); }
+
+.xblock-student_view table.mba-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+}
+
+.xblock-student_view table.mba-table caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--mba-primary);
+}
+
+.xblock-student_view table.mba-table th,
+.xblock-student_view table.mba-table td {
+  border: 1px solid var(--mba-border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+
+.xblock-student_view table.mba-table th {
+  background: var(--mba-primary);
+  color: #ffffff;
+  text-align: left;
+}
+
+.xblock-student_view table.mba-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.xblock-student_view .mba-reference {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--mba-border);
+}
+
+.xblock-student_view .mba-reference p,
+.xblock-student_view .mba-reference li {
+  padding-left: 1.5rem;
+  text-indent: -1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.xblock-student_view .mba-assessment {
+  border: 1px solid var(--mba-border);
+  border-left: 5px solid var(--mba-accent);
+  padding: 1rem;
+  margin: 1.25rem 0;
+  border-radius: var(--mba-radius);
+}
+
+.xblock-student_view .mba-module-banner {
+  background: var(--mba-primary);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: var(--mba-radius);
+  margin: 1rem auto;
+}
+
+.xblock-student_view .mba-module-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.xblock-student_view .mba-module-subtitle {
+  font-size: 1rem;
+  margin-top: 0.35rem;
+  color: #ffffff;
+}
+
+.xblock-student_view .mba-logo {
+  max-height: 60px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .xblock-student_view h3 { font-size: 1.3rem; }
+  .xblock-student_view h4 { font-size: 1.15rem; }
+
+  .xblock-student_view .mba-callout,
+  .xblock-student_view .mba-assessment {
+    padding: 0.75rem 1rem;
+  }
+
+  .xblock-student_view table.mba-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media print {
+  .xblock-student_view .mba-callout {
+    border: 1px solid #000000;
+    background: none;
+  }
+}
+\end{lstlisting}

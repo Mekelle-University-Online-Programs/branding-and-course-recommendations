@@ -1,0 +1,103 @@
+\documentclass[11pt,a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{needspace}
+\usepackage{pdflscape}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black,
+  pdftitle={MU MBA Course Recommendations — Open edX Teak},
+  pdfauthor={Mekelle University e-Learning Team}
+}
+
+% Listings style for CSS and XML
+\definecolor{codebg}{RGB}{248,248,248}
+\definecolor{codekw}{RGB}{0,0,180}
+\definecolor{codestr}{RGB}{163,21,21}
+\lstdefinelanguage{CSS}{
+  keywords={color,background,font-size,padding,margin,border,border-radius,display,width,height,line-height,text-align,position,top,right,transform,box-shadow,overflow,max-width,max-height,min-height,font-family,font-weight,text-decoration,text-indent,outline,outline-offset,flex,gap,grid,align-items,justify-content,transition,cursor,opacity,letter-spacing},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]'
+}
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebg},
+  keywordstyle=\color{codekw}\bfseries,
+  stringstyle=\color{codestr},
+  commentstyle=\color{gray}\itshape,
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  framesep=4pt,
+  xleftmargin=4pt,
+  xrightmargin=4pt
+}
+
+% Header/footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{MU MBA — Open edX Teak Recommendations}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Section formatting
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}{1em}{\Huge}
+\titlespacing*{\chapter}{0pt}{-20pt}{30pt}
+
+\title{\textbf{Mekelle University MBA Program\\Open edX Teak Course Production Recommendations}}
+\author{Mekelle University e-Learning Team\\under e-SHE / MoE / ASU collaboration}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\input{sections/00-front-matter}
+\input{sections/01-executive-summary}
+\input{sections/02-findings}
+\input{sections/03-branding-variables}
+\input{sections/04-common-css}
+\input{sections/05-formatting-guidelines}
+\input{sections/06-task-matrix}
+\input{sections/07-qa-rubric}
+\input{sections/08-implementation}
+\input{sections/09-risks}
+\input{sections/10-next-actions}
+
+\appendix
+\input{appendix/A-css-listing}
+\input{appendix/B-rubric-detail}
+\input{appendix/C-video-guide}
+\input{appendix/D-teak-notes}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

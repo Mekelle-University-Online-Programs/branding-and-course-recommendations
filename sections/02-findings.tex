@@ -1,0 +1,230 @@
+\chapter{Findings from the Attached Course}
+
+\section{Course Metadata — Critical Gap}
+
+The \texttt{about/} directory contains 10 files. Eight are 0 bytes:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lrl@{}}
+\toprule
+\textbf{File} & \textbf{Size} & \textbf{Status} \\
+\midrule
+\texttt{about\_sidebar\_html.html} & 0 & Empty \\
+\texttt{description.html} & 0 & Empty \\
+\texttt{duration.html} & 0 & Empty \\
+\texttt{entrance\_exam\_enabled.html} & 0 & Empty \\
+\texttt{entrance\_exam\_id.html} & 0 & Empty \\
+\texttt{entrance\_exam\_minimum\_score\_pct.html} & 2 & Contains only \texttt{50} \\
+\texttt{overview.html} & 170 & One generic paragraph \\
+\texttt{short\_description.html} & 0 & Empty \\
+\texttt{subtitle.html} & 0 & Empty \\
+\texttt{title.html} & 0 & Empty \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The course catalog will show no title, subtitle, description, or
+duration. The entrance exam is configured with a 50\% minimum score
+but no entrance exam content exists. This is a \textbf{P0 blocker}.
+
+\section{Template Placeholder Content — Pervasive}
+
+Placeholder text appears in nearly every content file reviewed:
+
+\begin{itemize}
+  \item \texttt{[Insert module objective here]}
+  \item \texttt{[Insert course description here]}
+  \item \texttt{[Insert activity/assessment here along with dates, if applicable]}
+  \item \texttt{[Insert brief module description here]}
+  \item \texttt{[Insert objective with verb and learning expectation]}
+  \item \texttt{[Insert email here or other contact information or erase]}
+  \item \texttt{[Insert Video introduction for the module or erase if there is no video]}
+  \item \texttt{[Insert banner title]}
+  \item \texttt{Click "Edit" to change the title}
+  \item \texttt{Add the content you want students to see on this page.}
+\end{itemize}
+
+This is the single largest content-quality issue. It maps to Roadmap
+Phase 1 (Content Authoring), which is not yet complete.
+
+\section{Duplicate and Conflicting Content}
+
+Confirmed duplicates between live and draft layers:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{UUID} & \textbf{Live} & \textbf{Draft} \\
+\midrule
+\texttt{3e45c044f5904531aae4851facf6bda2} & yes & yes \\
+\texttt{61ddd69424f94743bb3c9a0f1c7b8b6b} & yes & yes \\
+\texttt{81723e3f0ea2444bbd7956d3e58a6fa8} & yes & yes \\
+\texttt{a4c63782c79d4b83998ba44f77dd704a} & yes & yes \\
+\texttt{b824e48117954704884ee8ac8dc63367} & yes & yes \\
+\texttt{c61ee725f7ca47459bc2b7dadaa7be35} & yes & yes \\
+\texttt{d459779169f04146b82c14397e159ac7} & yes & yes \\
+\texttt{fc905ff03c204b6fbc8e9c0ecde2ed0c} & yes & yes \\
+\texttt{html1, html2, html4, html6, html8, html19} & yes & yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Additional duplication inside \texttt{html/}:
+
+\begin{itemize}
+  \item \texttt{html1.xml} and \texttt{html6.xml} both reference
+        \texttt{block-v1:ASU+T101SBX+DEV\_01+type@html+block@b7b7fdb67f92493fb31a184c09167f85}
+  \item \texttt{html4.xml} and \texttt{html8.xml} both reference
+        \texttt{block-v1:ASU+T101SBX+DEV\_01+type@html+block@7831baba0e8741db85f1e5028d814066}
+  \item \texttt{html19.xml} references
+        \texttt{block-v1:ASU+T101SBX+DEV\_01+type@html+block@html10}
+\end{itemize}
+
+\section{Cross-Course and Cross-Program Contamination}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{0.45\textwidth}p{0.45\textwidth}@{}}
+\toprule
+\textbf{Item} & \textbf{Origin} \\
+\midrule
+\texttt{html1.xml, html4.xml, html6.xml, html8.xml, html19.xml} & \texttt{block-v1:ASU+T101SBX+DEV\_01} \\
+\texttt{problem1.xml} & \texttt{block-v1:e-SHE+CE105+Q1} \\
+\texttt{static/ASM246\_W6\_...} & ASM246 course \\
+\texttt{static/Course\_Welcome\_Banner\_1..6.jpeg} & ASU template \\
+\texttt{static/FinalCheckButtonASM.png} & ASU template \\
+\texttt{static/edX\_progress\_page.png} & e-SHE Template101 \\
+\texttt{static/MoE\_EthERNet\_Accessing\_guides.pdf} & e-SHE Template101 \\
+\texttt{static/e-she-learning-communities-faculty-raw-*.zip} & e-SHE \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Invalid HTML Patterns}
+
+Recurring structural defects:
+
+\begin{itemize}
+  \item Invalid nested lists: \texttt{<ul><ul>...</ul></ul>}
+  \item Nested empty lists: \texttt{<ul><li style="list-style-type: none;"><ul>...}
+  \item Empty anchors: \texttt{<span id="docs-internal-guid-...">}
+  \item Orphan attributes: \texttt{<span div="" style="...">}
+  \item Broken \texttt{target}: \texttt{target="[object Object]"}
+  \item Heading level misuse: \texttt{<h4><img ... alt="Learning Outcomes" /></h4>}
+  \item \texttt{<h2>} used inside course content, competing with platform page titles
+\end{itemize}
+
+\section{Inline and Embedded Styles}
+
+Inline styles that will override common CSS are present across files.
+Hard-coded colors found: \texttt{\#127DAD}, \texttt{\#82CFF0},
+\texttt{\#F1F7FC}, \texttt{\#333}, \texttt{\#ffffff}, \texttt{\#000000},
+\texttt{\#548dd4}, \texttt{\#4c4642}, \texttt{rgb(49, 49, 49)}.
+
+Embedded \texttt{<style>} blocks in content components:
+
+\begin{itemize}
+  \item \texttt{.instructor-module-banner} in
+        \texttt{81723e3f0ea2444bbd7956d3e58a6fa8.html}
+  \item \texttt{.banner-container}, \texttt{.banner-image},
+        \texttt{.editable-text}, \texttt{.editable-title},
+        \texttt{.editable-subtitle} in
+        \texttt{c61ee725f7ca47459bc2b7dadaa7be35.html}
+\end{itemize}
+
+\section{\texttt{contenteditable="true"} — Template Authoring Artifact}
+
+Found in:
+
+\begin{itemize}
+  \item \texttt{81723e3f0ea2444bbd7956d3e58a6fa8.html}:
+        \texttt{.instructor-module-title}, \texttt{.instructor-module-subtitle}
+  \item \texttt{c61ee725f7ca47459bc2b7dadaa7be35.html}:
+        \texttt{.editable-title}, \texttt{.editable-subtitle}
+\end{itemize}
+
+This must be removed for students. It is a security and UX risk.
+
+\section{Assessment Issues}
+
+\begin{itemize}
+  \item \texttt{problem1.xml} — all seven choices marked
+        \texttt{correct="true"}. \textbf{In Teak, only the first correct
+        choice is awarded a point.} Redesign as survey or poll.
+  \item \texttt{problem2.xml} — \texttt{stringresponse
+        answer="the correct answer"} placeholder.
+  \item \texttt{problem3.xml} — contains Open edX template text.
+  \item \texttt{ee78b25a6eb9412fb34f55abf8033159.xml} — invalid XML
+        structure: \texttt{<label>2.} not closed before
+        \texttt{<multiplechoiceresponse>}.
+  \item \texttt{cc44e80a2ca64c03a130de60507a74f9.xml} — \texttt{problem}
+        used for a 2{,}000-word report. Should be ORA /
+        \texttt{openassessment} or staff-graded.
+  \item \texttt{c0e198d218c843e08cf3c96a40ec6c79.xml} — long feedback
+        embedded in \texttt{answer} attribute.
+\end{itemize}
+
+\section{Video Issues}
+
+All 8 videos use YouTube-only hosting
+(\texttt{edx\_video\_id=""}, \texttt{html5\_sources="[]"}) with no
+captions or transcripts.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{File} & \textbf{YouTube ID} & \textbf{Defect} \\
+\midrule
+\texttt{0c6a09...} & \texttt{ooSgnmwHd08} & No captions \\
+\texttt{7b3247...} & \texttt{3\_yD\_cEKoCk} & Duplicate ID \\
+\texttt{2949dc...} & \texttt{3\_yD\_cEKoCk} & Duplicate ID \\
+\texttt{70969a...} & \texttt{ZWmXi3TW1yA} & No captions \\
+\texttt{233035...} & \texttt{IyYm-7TPQLY} & Malformed title (leading ``: '') \\
+\texttt{a7893d...} & \texttt{dgBx2V-872c} & No captions \\
+\texttt{c63a0f...} & \texttt{rGN6-HTDj04} & No captions \\
+\texttt{d96ca9...} & \texttt{6Qj9RNXTJ4Q} & No captions \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{\texttt{video\_iframe} XBlock — Teak Compatibility Risk}
+
+Two verticals use a custom \texttt{video\_iframe} XBlock pointing to
+\texttt{https://media.courses.ethernet.edu.et/embed/view/...}:
+
+\begin{itemize}
+  \item \texttt{f61e7b9c527040f08f16567d874b0bde.xml}
+  \item \texttt{4bfb6717391d43b8a5a569fd18378561.xml}
+\end{itemize}
+
+This XBlock is not standard in Teak. The roadmap specifies YouTube
+unlisted/private as the video hosting standard. This is a
+\textbf{roadmap divergence} to resolve.
+
+\section{Additional Findings}
+
+\begin{itemize}
+  \item Staff-only template chapter
+        \texttt{4356f84033f24b2ea2cbd5eca77b2235.xml} is correctly
+        \texttt{visible\_to\_staff\_only="true"}. Preserve it.
+  \item Broken static links in
+        \texttt{d22b04c75dd34fde869373b0f5b57a81.html}:
+        \texttt{/static/ASM246\_Syllabus.pdf},
+        \texttt{/static/ASM246\_Schedule.pdf}.
+  \item Base64 image and VML markup in
+        \texttt{1cdedf6cc1e14630ad5f884562a58e6e.html}.
+  \item Citation ``Source: ProjectManager (2026, enhanced by ChatGPT)''
+        must be reviewed by SME.
+  \item \texttt{advanced\_modules} in \texttt{DEV\_01.xml} includes
+        several XBlocks not shipped with Teak by default
+        (\texttt{crowdsourcehinter}, \texttt{recommender}, \texttt{rate},
+        \texttt{staff\_graded}, \texttt{google\_drive}, \texttt{videoalpha},
+        \texttt{video\_iframe}). Confirm install status with the Open edX
+        expert.
+\end{itemize}

@@ -1,0 +1,37 @@
+\chapter{Common CSS}
+
+The complete CSS listing is provided in Appendix~\ref{app:css}. The
+file \texttt{mu-mba-brand.css} must be uploaded to Studio
+$\to$ Files \& Uploads, then applied via
+
+\begin{quote}
+Studio $\to$ Settings $\to$ Advanced Settings $\to$
+\texttt{course\_wide\_css}
+\end{quote}
+
+with value:
+
+\begin{lstlisting}
+/static/mu-mba-brand.css
+\end{lstlisting}
+
+\section{Scope Rules}
+
+\begin{itemize}
+  \item Only targets content inside \texttt{.xblock-student\_view}.
+  \item Never uses global selectors (\texttt{body}, \texttt{header},
+        \texttt{nav}, \texttt{button}, \texttt{input}).
+  \item Replaces embedded classes
+        \texttt{.instructor-module-banner}, \texttt{.banner-container},
+        \texttt{.editable-*} with semantic \texttt{.mba-*} classes.
+  \item All values requiring management approval are placeholders.
+\end{itemize}
+
+\section{What CSS Can and Cannot Do in Teak}
+
+\textbf{Can:} style content inside XBlocks, headings, lists, callouts,
+tables, images, references, assessment wrappers.
+
+\textbf{Cannot:} style platform header, footer, dashboard, login page,
+or global navigation. Those require a theme, coordinated with the
+Open edX expert role.

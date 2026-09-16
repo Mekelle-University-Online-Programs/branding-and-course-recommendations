@@ -1,0 +1,39 @@
+\chapter{Open edX Teak Notes}
+\label{app:teak}
+
+\section{What Teak Changes for This Project}
+
+\begin{itemize}
+  \item \textbf{Course-wide CSS} is supported via
+        \texttt{course\_wide\_css} in Studio Advanced Settings.
+  \item \textbf{\texttt{video\_iframe}} is not a standard XBlock.
+  \item \textbf{Multiple-choice items with all correct choices}
+        award a point only for the first correct choice.
+  \item \textbf{Several \texttt{advanced\_modules}} in
+        \texttt{DEV\_01.xml} are not shipped with Teak by default:
+        \texttt{crowdsourcehinter}, \texttt{recommender}, \texttt{rate},
+        \texttt{staff\_graded}, \texttt{google\_drive}, \texttt{videoalpha},
+        \texttt{video\_iframe}. Confirm install status.
+  \item \textbf{OLX} remains the import/export format.
+  \item \textbf{Studio preview} in Teak respects course-wide CSS.
+\end{itemize}
+
+\section{Recommended Teak-Safe XBlock Set}
+
+\begin{itemize}
+  \item \texttt{html}
+  \item \texttt{problem} (with \texttt{multiplechoiceresponse},
+        \texttt{choiceresponse}, \texttt{numericalresponse},
+        \texttt{stringresponse}, \texttt{optionresponse})
+  \item \texttt{video}
+  \item \texttt{discussion}
+  \item \texttt{openassessment} (ORA)
+  \item \texttt{library\_content}
+  \item \texttt{poll}
+  \item \texttt{survey}
+  \item \texttt{word\_cloud}
+  \item \texttt{drag\_and\_drop\_v2}
+  \item \texttt{lti\_consumer}
+  \item \texttt{scorm}
+  \item \texttt{pdf}
+\end{itemize}

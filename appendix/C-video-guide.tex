@@ -1,0 +1,140 @@
+\chapter{Findings Video Recording Guide}
+\label{app:video}
+
+\section{Purpose}
+
+Produce a single findings video for the Project Management course
+(\texttt{MU+MBAD7112+DEV\_01}) that leadership, IDs, authors, and
+Open edX experts can watch before cleanup begins.
+
+\section{Target Length}
+
+12--18 minutes.
+
+\section{Audience}
+
+Leadership, IDs, course authors, Open edX experts, multimedia team,
+QA reviewers, ICT.
+
+\section{Pre-Recording Checklist}
+
+\begin{itemize}
+  \item[$\square$] Screen resolution: 1920$\times$1080
+  \item[$\square$] Browser: Chrome, clean profile, no extensions visible
+  \item[$\square$] Bookmark bar hidden
+  \item[$\square$] Notifications silenced
+  \item[$\square$] Studio logged in as admin
+  \item[$\square$] Text editor tabs open for the specific files
+  \item[$\square$] GitHub repo open in a second tab
+  \item[$\square$] PDF of this document open in a third tab
+  \item[$\square$] Microphone tested; backup audio recorder running
+  \item[$\square$] Script printed or on second monitor
+\end{itemize}
+
+\section{Scene-by-Scene Script}
+
+\subsection*{Scene 1 — Opening (0:00--1:00)}
+\begin{itemize}
+  \item Presenter on camera or title card: ``Findings from the Project Management Course — Open edX Teak.''
+  \item State purpose: identify defects blocking publication.
+  \item State scope: 727 files, 14 courses, 1 pilot course.
+  \item State non-goal: this video does not change course meaning, assessment logic, or learning outcomes.
+\end{itemize}
+
+\subsection*{Scene 2 — Course Metadata (1:00--2:30)}
+\begin{itemize}
+  \item Open the \texttt{about/} directory in Finder/Explorer.
+  \item Show \texttt{ls -al} output with 0-byte files.
+  \item Explain catalog blocker.
+  \item Show \texttt{entrance\_exam\_minimum\_score\_pct.html} containing only \texttt{50}.
+\end{itemize}
+
+\subsection*{Scene 3 — Placeholder Content (2:30--4:30)}
+\begin{itemize}
+  \item Open Studio course outline.
+  \item Navigate to Module One.
+  \item Show \texttt{[Insert module objective here]} in the rendered preview.
+  \item Show the source HTML with placeholders.
+  \item Show count of placeholders across the course.
+\end{itemize}
+
+\subsection*{Scene 4 — Duplicate Live/Draft Components (4:30--6:00)}
+\begin{itemize}
+  \item Show \texttt{html/} and \texttt{drafts/html/} side by side.
+  \item Point out the 8 duplicate UUID pairs and \texttt{html1}, \texttt{html2}, \texttt{html4}, \texttt{html6}, \texttt{html8}, \texttt{html19}.
+  \item Explain: Studio may publish whichever version is newer; this is a version-control risk.
+\end{itemize}
+
+\subsection*{Scene 5 — Cross-Course Contamination (6:00--7:30)}
+\begin{itemize}
+  \item Open \texttt{html1.xml} — show \texttt{copied\_from\_block="block-v1:ASU+T101SBX+DEV\_01..."}.
+  \item Open \texttt{problem1.xml} — show \texttt{block-v1:e-SHE+CE105+Q1...}.
+  \item Open \texttt{static/} — show ASM246 file, ASU banners, e-SHE templates.
+  \item Explain: this is ASU/e-SHE template content inside an MU course.
+\end{itemize}
+
+\subsection*{Scene 6 — HTML Defects (7:30--9:00)}
+\begin{itemize}
+  \item Show \texttt{<ul><ul>} nesting in \texttt{b824e481...html}.
+  \item Show orphan attribute \texttt{<span div="" ...>} in \texttt{a4c63782...html}.
+  \item Show \texttt{target="[object Object]"}.
+  \item Show heading misuse: \texttt{<h4><img ... alt="Learning Outcomes" /></h4>}.
+\end{itemize}
+
+\subsection*{Scene 7 — Embedded Styles (9:00--10:30)}
+\begin{itemize}
+  \item Show \texttt{.instructor-module-banner} in \texttt{81723e3f...html}.
+  \item Show \texttt{contenteditable="true"}.
+  \item Explain: this will override any course-wide CSS and is a security/UX risk.
+\end{itemize}
+
+\subsection*{Scene 8 — Assessment Defects (10:30--12:00)}
+\begin{itemize}
+  \item Open \texttt{problem1.xml} — show all \texttt{correct="true"} and explain Teak behavior.
+  \item Open \texttt{problem2.xml} — show placeholder answer key.
+  \item Open \texttt{ee78b25a...xml} — show invalid XML structure.
+  \item Open \texttt{cc44e80a...xml} — explain ORA vs problem mismatch.
+\end{itemize}
+
+\subsection*{Scene 9 — Video Defects (12:00--13:30)}
+\begin{itemize}
+  \item Show the 8 \texttt{video/*.xml} files.
+  \item Highlight duplicate YouTube ID \texttt{3\_yD\_cEKoCk}.
+  \item Highlight missing captions and transcripts.
+  \item Highlight malformed display name \texttt{": What does a project manager do?"}.
+  \item Show \texttt{video\_iframe} divergence from roadmap.
+\end{itemize}
+
+\subsection*{Scene 10 — Summary of Defects (13:30--15:00)}
+\begin{itemize}
+  \item Show a summary slide with the P0 items:
+    \begin{enumerate}
+      \item Populate \texttt{about/} metadata.
+      \item Remove all placeholders.
+      \item Resolve live/draft conflicts.
+      \item Fix duplicate YouTube ID and add captions.
+      \item Validate problem XML in Teak.
+      \item Redesign self-assessment for Teak.
+      \item Confirm \texttt{course\_wide\_css}, \texttt{video\_iframe}, \texttt{advanced\_modules}.
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{Scene 11 — Closing (15:00--16:00)}
+\begin{itemize}
+  \item State next steps.
+  \item Point to GitHub repo for this document.
+  \item Thank audience.
+\end{itemize}
+
+\section{Post-Recording Checklist}
+
+\begin{itemize}
+  \item[$\square$] Audio clear
+  \item[$\square$] No private data on screen
+  \item[$\square$] Captions added (English, and Amharic if possible)
+  \item[$\square$] Transcript published alongside video
+  \item[$\square$] Video length as planned
+  \item[$\square$] Uploaded unlisted to YouTube with roadmap-compliant privacy
+  \item[$\square$] Shared link in GitHub repo
+  \item[$\square$] Notified stakeholders per Section 5 of the sharing guidance
+\end{itemize}

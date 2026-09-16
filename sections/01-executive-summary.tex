@@ -1,0 +1,43 @@
+\chapter{Executive Summary}
+
+The \texttt{MU+MBAD7112+DEV\_01} course (Project Management) is
+\textbf{not ready for publication}. It is a template shell in early
+population state. Most content is placeholder text, all \texttt{about/}
+metadata files are empty, and unpublished draft components duplicate
+and contradict live components.
+
+The two program PDFs provide the roadmap
+(\textit{Online-Course-Material-Development.pdf}) and the QA baseline
+(\textit{DIGITAL CONTENT QUALITY ASSURANCE RUBRIC TEMPLATE.pdf}). This
+recommendation aligns to:
+
+\begin{itemize}
+  \item Roadmap Phases 0--9
+  \item The RACI matrix and tool responsibilities in Section 2.3
+  \item Appendix B (Branding Elements)
+  \item The 9-category QA rubric, expanded to 14 categories with
+        scoring bands and gate mapping
+  \item Open edX Teak capabilities, including \texttt{course\_wide\_css}
+\end{itemize}
+
+\textbf{Key decisions:}
+\begin{enumerate}
+  \item A common CSS file, scoped to course content only, is uploaded
+        via Studio $\to$ Files \& Uploads and applied via
+        \texttt{course\_wide\_css} (Teak-supported).
+  \item Authors work in Open edX Studio as primary authoring tool.
+        GitHub holds exported course snapshots, issue tracking, and
+        GitHub Pages previews.
+  \item The QA rubric is expanded to 14 categories with a 0--5 scoring
+        band, a minimum pass threshold of 4.0 weighted average, and
+        no category below 3.
+  \item All \texttt{about/} metadata must be populated before catalog
+        visibility can be approved.
+  \item The \texttt{video\_iframe} XBlock is not standard in Teak and
+        must be migrated to standard \texttt{video} XBlocks or
+        confirmed as a custom install.
+  \item Multiple-choice items with all \texttt{correct="true"} choices
+        will only award a point for the first correct choice in Teak.
+        The pre-course self-assessment must be redesigned as a survey
+        or poll XBlock.
+\end{enumerate}
