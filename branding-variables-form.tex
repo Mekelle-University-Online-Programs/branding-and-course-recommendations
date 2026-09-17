@@ -1,0 +1,491 @@
+% ============================================================
+% Mekelle University MBA — Branding Variables Approval Form
+% Fillable AcroForm PDF.
+%
+% Compile:
+%   pdflatex -interaction=nonstopmode -halt-on-error branding-variables-form.tex
+%   pdflatex -interaction=nonstopmode -halt-on-error branding-variables-form.tex
+%
+% Output: branding-variables-form.pdf
+%
+% PDF viewer support for fillable fields:
+%   Adobe Acrobat Reader .......... full
+%   Google Chrome ................. full
+%   Mozilla Firefox ............... full
+%   Microsoft Edge ................ full
+%   macOS Preview ................. LIMITED (borders may not show)
+%   Safari ........................ LIMITED
+% Recommend Chrome or Acrobat Reader.
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Encoding ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+% ---------- Layout ----------
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+
+% ---------- Tables ----------
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{makecell}
+
+% ---------- Lists ----------
+\usepackage{enumitem}
+\setlist{nosep}
+
+% ---------- Color and graphics ----------
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+% ---------- Symbols ----------
+\usepackage{amssymb}
+
+% ---------- Code listings ----------
+\usepackage{listings}
+\definecolor{codebg}{RGB}{248,248,248}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{codebg},
+  breaklines=true,
+  frame=single,
+  framesep=4pt,
+  columns=fullflexible,
+  keepspaces=true
+}
+
+% ---------- Headers/footers ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small MU MBA — Branding Variables Approval Form}
+\fancyhead[R]{\small v1.0}
+\fancyfoot[C]{\small Page \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------- Section styling ----------
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.6em}{}
+
+% ---------- Hyperref (must be last) ----------
+\usepackage[
+  colorlinks=false,
+  pdfborder={0 0 0},
+  pdftitle={University Branding Variables Approval Form},
+  pdfauthor={Mekelle University e-Learning Team},
+  pdfsubject={Branding variables approval for Open edX Teak},
+  pdfkeywords={branding, Open edX, Teak, MU MBA}
+]{hyperref}
+
+% ---------- Form field helpers ----------
+% Single-line text field
+\newcommand{\ff}[2]{%
+  \TextField[
+    name=#1,
+    width=#2,
+    height=0.5cm,
+    charsize=9pt,
+    bordercolor={0.6 0.6 0.6},
+    backgroundcolor={0.97 0.97 1},
+    borderstyle={S}
+  ]{}%
+}
+
+% Multi-line text field
+\newcommand{\ffml}[2]{%
+  \TextField[
+    name=#1,
+    width=#2,
+    height=1cm,
+    multiline=true,
+    charsize=9pt,
+    bordercolor={0.6 0.6 0.6},
+    backgroundcolor={0.97 0.97 1},
+    borderstyle={S}
+  ]{}%
+}
+
+% Checkbox
+\newcommand{\cb}[1]{%
+  \CheckBox[
+    name=#1,
+    width=12pt,
+    height=12pt,
+    bordercolor={0.3 0.3 0.3},
+    backgroundcolor={1 1 1}
+  ]{}%
+}
+
+% Signature field
+\newcommand{\sig}[2]{%
+  \TextField[
+    name=#1,
+    width=#2,
+    height=0.7cm,
+    charsize=9pt,
+    bordercolor={0.6 0.6 0.6},
+    backgroundcolor={0.97 0.97 1}
+  ]{}%
+}
+
+% Variable name in monospace
+\newcommand{\variable}[1]{\texttt{#1}}
+
+% ============================================================
+\begin{document}
+
+% ---------- Title ----------
+\begin{center}
+  {\LARGE\bfseries University Branding Variables}\\[4pt]
+  {\LARGE\bfseries Approval Form}\\[10pt]
+  {\large Mekelle University --- Online MBA Program}\\[4pt]
+  {\large Open edX Teak}\\[10pt]
+  \rule{\textwidth}{0.4pt}
+\end{center}
+
+\vspace{0.3em}
+
+\begin{center}
+\small\itshape
+Open this PDF in Chrome, Firefox, Edge, or Adobe Acrobat Reader to fill the fields.\\
+Click any blue field and type. Checkboxes toggle on click. Save with \textbf{File~$\to$~Save~As}.
+\end{center}
+
+\vspace{0.5em}
+
+% ---------- Document control ----------
+\section*{Document Control}
+
+\begin{tabular}{@{}p{0.30\textwidth}p{0.60\textwidth}@{}}
+\textbf{Course:}          & MU+MBAD7112+DEV\_01 (Project Management) \\
+\textbf{Program:}         & 14-course online MBA, Mekelle University \\
+\textbf{Platform:}        & Open edX Teak \\
+\textbf{Form version:}    & 1.0 \\
+\textbf{Date issued:}     & \ff{doc_date_issued}{6cm} \\
+\textbf{Issued by:}       & \ff{doc_issued_by}{6cm} \\
+\textbf{Due back by:}     & \ff{doc_due_back}{6cm} \\
+\textbf{Respondent name:} & \ff{doc_respondent_name}{6cm} \\
+\textbf{Respondent role:} & \ff{doc_respondent_role}{6cm} \\
+\end{tabular}
+
+\vspace{0.6em}
+
+% ---------- Instructions ----------
+\section*{Instructions to the Respondent}
+
+\begin{enumerate}
+  \item Fill in the \textbf{Approved Value} column for every row.
+  \item Do not leave any row blank. If a value is not yet approved, write
+        \textbf{PENDING} and add the expected approval date in the
+        \textbf{Notes} column.
+  \item For every color value, complete Part~C before signing.
+  \item For \variable{FONT\_FAMILY}, attach a license file.
+  \item For \variable{LOGO\_URL}, upload the logo to Studio and enter
+        the resulting \variable{/static/...} path.
+  \item Return Parts A, B, and C together in one PDF.
+\end{enumerate}
+
+% ============================================================
+\section*{Part A --- Branding Variables}
+
+% ---------- Section 1 ----------
+\subsection*{Section 1 --- Identity}
+
+\begin{longtable}{@{}p{0.04\textwidth}p{0.17\textwidth}p{0.20\textwidth}p{0.20\textwidth}p{0.23\textwidth}@{}}
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Value} & \textbf{Notes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Value} & \textbf{Notes} \\
+\midrule
+\endhead
+1 & \variable{UNIVERSITY\_NAME} & Official name & \ff{s1_university_name}{4.5cm} & \ff{s1_university_name_notes}{5.3cm} \\[6pt]
+2 & \variable{UNIVERSITY\_NAME\_SHORT} & Short form & \ff{s1_university_short}{4.5cm} & \ff{s1_university_short_notes}{5.3cm} \\[6pt]
+3 & \variable{LOGO\_URL} & Primary logo & \ff{s1_logo_url}{4.5cm} & \ff{s1_logo_url_notes}{5.3cm} \\[6pt]
+4 & \variable{LOGO\_URL\_REVERSED} & Reversed logo & \ff{s1_logo_reversed}{4.5cm} & \ff{s1_logo_reversed_notes}{5.3cm} \\[6pt]
+5 & \variable{FAVICON\_URL} & Favicon & \ff{s1_favicon}{4.5cm} & \ff{s1_favicon_notes}{5.3cm} \\[6pt]
+6 & \variable{FOOTER\_TEXT} & Footer copyright & \ff{s1_footer_text}{4.5cm} & \ff{s1_footer_text_notes}{5.3cm} \\[6pt]
+\bottomrule
+\end{longtable}
+
+% ---------- Section 2 ----------
+\subsection*{Section 2 --- Color Palette}
+
+All color values must pass WCAG 2.1 AA. Complete Part~C for each.
+
+\begin{longtable}{@{}p{0.04\textwidth}p{0.19\textwidth}p{0.20\textwidth}p{0.17\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Hex} & \textbf{Notes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Hex} & \textbf{Notes} \\
+\midrule
+\endhead
+7  & \variable{PRIMARY\_COLOR}     & Main brand color & \ff{s2_primary}{3.6cm} & \ff{s2_primary_notes}{5.5cm} \\[6pt]
+8  & \variable{SECONDARY\_COLOR}   & Secondary accent & \ff{s2_secondary}{3.6cm} & \ff{s2_secondary_notes}{5.5cm} \\[6pt]
+9  & \variable{ACCENT\_COLOR}      & Focus / highlight & \ff{s2_accent}{3.6cm} & \ff{s2_accent_notes}{5.5cm} \\[6pt]
+10 & \variable{LINK\_COLOR}        & Hyperlink & \ff{s2_link}{3.6cm} & \ff{s2_link_notes}{5.5cm} \\[6pt]
+11 & \variable{LINK\_HOVER\_COLOR} & Link hover & \ff{s2_link_hover}{3.6cm} & \ff{s2_link_hover_notes}{5.5cm} \\[6pt]
+12 & \variable{WARNING\_COLOR}     & Warning border & \ff{s2_warning}{3.6cm} & \ff{s2_warning_notes}{5.5cm} \\[6pt]
+13 & \variable{SUCCESS\_COLOR}     & Success border & \ff{s2_success}{3.6cm} & \ff{s2_success_notes}{5.5cm} \\[6pt]
+14 & \variable{TEXT\_COLOR}        & Body text & \ff{s2_text}{3.6cm} & \ff{s2_text_notes}{5.5cm} \\[6pt]
+15 & \variable{MUTED\_TEXT\_COLOR} & Captions & \ff{s2_muted}{3.6cm} & \ff{s2_muted_notes}{5.5cm} \\[6pt]
+16 & \variable{BORDER\_COLOR}      & Table borders & \ff{s2_border}{3.6cm} & \ff{s2_border_notes}{5.5cm} \\[6pt]
+\bottomrule
+\end{longtable}
+
+% ---------- Section 3 ----------
+\subsection*{Section 3 --- Typography}
+
+\begin{longtable}{@{}p{0.04\textwidth}p{0.20\textwidth}p{0.20\textwidth}p{0.20\textwidth}p{0.20\textwidth}@{}}
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Value} & \textbf{Notes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Value} & \textbf{Notes} \\
+\midrule
+\endhead
+17 & \variable{FONT\_FAMILY}          & Body font & \ff{s3_font_body}{4.5cm} & \ff{s3_font_body_notes}{4.5cm} \\[6pt]
+18 & \variable{FONT\_FAMILY\_HEADING} & Heading font & \ff{s3_font_heading}{4.5cm} & \ff{s3_font_heading_notes}{4.5cm} \\[6pt]
+19 & \variable{FONT\_FAMILY\_MONO}    & Monospace & \ff{s3_font_mono}{4.5cm} & \ff{s3_font_mono_notes}{4.5cm} \\[6pt]
+20 & \variable{FONT\_LICENSE}         & Font license & \ff{s3_font_license}{4.5cm} & \ff{s3_font_license_notes}{4.5cm} \\[6pt]
+21 & \variable{BASE\_FONT\_SIZE}      & Base size & \ff{s3_base_size}{4.5cm} & \ff{s3_base_size_notes}{4.5cm} \\[6pt]
+\bottomrule
+\end{longtable}
+
+% ---------- Section 4 ----------
+\subsection*{Section 4 --- Header and Footer}
+
+\begin{longtable}{@{}p{0.04\textwidth}p{0.22\textwidth}p{0.24\textwidth}p{0.20\textwidth}p{0.18\textwidth}@{}}
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Value} & \textbf{Notes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Value} & \textbf{Notes} \\
+\midrule
+\endhead
+22 & \variable{HEADER\_STYLE}          & Header border & \ff{s4_header_style}{4.5cm} & \ff{s4_header_style_notes}{4cm} \\[6pt]
+23 & \variable{HEADER\_LOGO\_POSITION} & Logo position & \ff{s4_header_logo}{4.5cm} & \ff{s4_header_logo_notes}{4cm} \\[6pt]
+24 & \variable{FOOTER\_LOGO\_POSITION} & Logo position & \ff{s4_footer_logo}{4.5cm} & \ff{s4_footer_logo_notes}{4cm} \\[6pt]
+25 & \variable{FOOTER\_LINKS}          & Footer links & \ff{s4_footer_links}{4.5cm} & \ff{s4_footer_links_notes}{4cm} \\[6pt]
+\bottomrule
+\end{longtable}
+
+% ---------- Section 5 ----------
+\subsection*{Section 5 --- Platform and Policy}
+
+\begin{longtable}{@{}p{0.04\textwidth}p{0.26\textwidth}p{0.24\textwidth}p{0.20\textwidth}p{0.18\textwidth}@{}}
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Value} & \textbf{Notes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Value} & \textbf{Notes} \\
+\midrule
+\endhead
+26 & \variable{OPEN\_EDX\_VERSION}          & Platform version & Teak (pre-filled) & \ff{s5_openedx_notes}{4cm} \\[6pt]
+27 & \variable{COURSE\_WIDE\_CSS\_ENABLED}  & Course-wide CSS & \ff{s5_cwcss}{4.5cm} & \ff{s5_cwcss_notes}{4cm} \\[6pt]
+28 & \variable{BRAND\_GUIDELINES}           & Brand document & \ff{s5_brand_doc}{4.5cm} & \ff{s5_brand_doc_notes}{4cm} \\[6pt]
+29 & \variable{CONSTRAINTS}                 & IT / a11y policy & \ff{s5_constraints}{4.5cm} & \ff{s5_constraints_notes}{4cm} \\[6pt]
+30 & \variable{IFRAME\_POLICY}              & Iframe policy & \ff{s5_iframe}{4.5cm} & \ff{s5_iframe_notes}{4cm} \\[6pt]
+31 & \variable{CDN\_POLICY}                 & CDN policy & \ff{s5_cdn}{4.5cm} & \ff{s5_cdn_notes}{4cm} \\[6pt]
+32 & \variable{LOGO\_USAGE\_POLICY}         & Logo usage & \ff{s5_logo_policy}{4.5cm} & \ff{s5_logo_policy_notes}{4cm} \\[6pt]
+\bottomrule
+\end{longtable}
+
+% ---------- Section 6 ----------
+\subsection*{Section 6 --- Publication Metadata}
+
+\begin{longtable}{@{}p{0.04\textwidth}p{0.26\textwidth}p{0.24\textwidth}p{0.20\textwidth}p{0.18\textwidth}@{}}
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Value} & \textbf{Notes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{\#} & \textbf{Variable} & \textbf{Purpose} & \textbf{Approved Value} & \textbf{Notes} \\
+\midrule
+\endhead
+33 & \variable{COURSE\_CATALOG\_VISIBILITY} & Catalog visibility & \ff{s6_catalog}{4.5cm} & \ff{s6_catalog_notes}{4cm} \\[6pt]
+34 & \variable{CERTIFICATE\_LOGO}           & Certificate logo & \ff{s6_cert_logo}{4.5cm} & \ff{s6_cert_logo_notes}{4cm} \\[6pt]
+35 & \variable{PUBLICATION\_APPROVER}       & Publication approver & \ff{s6_pub_approver}{4.5cm} & \ff{s6_pub_approver_notes}{4cm} \\[6pt]
+36 & \variable{BRANDING\_APPROVER}          & Branding approver & \ff{s6_brand_approver}{4.5cm} & \ff{s6_brand_approver_notes}{4cm} \\[6pt]
+\bottomrule
+\end{longtable}
+
+% ============================================================
+\newpage
+\section*{Part B --- Declarations}
+
+\subsection*{Respondent}
+
+\begin{tabular}{@{}p{0.15\textwidth}p{0.32\textwidth}p{0.15\textwidth}p{0.32\textwidth}@{}}
+Name:       & \ff{pB_resp_name}{5.5cm} & Role:      & \ff{pB_resp_role}{5.5cm} \\[8pt]
+Department: & \ff{pB_resp_dept}{5.5cm} & Date:      & \ff{pB_resp_date}{5.5cm} \\[8pt]
+Email:      & \ff{pB_resp_email}{5.5cm} & Signature: & \sig{pB_resp_sig}{5.5cm} \\
+\end{tabular}
+
+\vspace{0.6em}
+
+\subsection*{Branding Approval}
+
+\begin{tabular}{@{}p{0.15\textwidth}p{0.32\textwidth}p{0.15\textwidth}p{0.32\textwidth}@{}}
+Name:       & \ff{pB_brand_name}{5.5cm} & Role:      & \ff{pB_brand_role}{5.5cm} \\[8pt]
+Department: & \ff{pB_brand_dept}{5.5cm} & Date:      & \ff{pB_brand_date}{5.5cm} \\[8pt]
+Signature:  & \sig{pB_brand_sig}{5.5cm} &            & \\
+\end{tabular}
+
+\vspace{0.6em}
+
+\subsection*{Accessibility Approval}
+
+\begin{tabular}{@{}p{0.15\textwidth}p{0.32\textwidth}p{0.15\textwidth}p{0.32\textwidth}@{}}
+Name:       & \ff{pB_a11y_name}{5.5cm} & Role:      & \ff{pB_a11y_role}{5.5cm} \\[8pt]
+Department: & \ff{pB_a11y_dept}{5.5cm} & Date:      & \ff{pB_a11y_date}{5.5cm} \\[8pt]
+Signature:  & \sig{pB_a11y_sig}{5.5cm} &            & \\
+\end{tabular}
+
+\vspace{0.6em}
+
+\subsection*{IT / ICT Confirmation}
+
+\begin{tabular}{@{}p{0.15\textwidth}p{0.32\textwidth}p{0.15\textwidth}p{0.32\textwidth}@{}}
+Name:       & \ff{pB_it_name}{5.5cm} & Role:      & \ff{pB_it_role}{5.5cm} \\[8pt]
+Department: & \ff{pB_it_dept}{5.5cm} & Date:      & \ff{pB_it_date}{5.5cm} \\[8pt]
+Signature:  & \sig{pB_it_sig}{5.5cm} &            & \\
+\end{tabular}
+
+\vspace{0.8em}
+
+\subsection*{Attachments Checklist}
+
+\begin{itemize}
+  \item \cb{chk_brand_guidelines} Brand guidelines attached
+  \item \cb{chk_logo_uploaded} Logo files uploaded to Studio
+  \item \cb{chk_font_license} Font license attached
+  \item \cb{chk_contrast} Contrast worksheet completed
+  \item \cb{chk_it_policy} IT policy confirmation attached
+\end{itemize}
+
+% ============================================================
+\newpage
+\section*{Part C --- Contrast Validation Worksheet}
+
+Standard: WCAG 2.1 AA. Normal text minimum 4.5:1. Large text minimum 3:1. Non-text minimum 3:1.
+
+\begin{longtable}{@{}p{0.04\textwidth}p{0.20\textwidth}p{0.20\textwidth}p{0.20\textwidth}p{0.10\textwidth}p{0.10\textwidth}p{0.10\textwidth}@{}}
+\toprule
+\textbf{\#} & \textbf{Usage} & \textbf{Foreground} & \textbf{Background} & \textbf{Ratio} & \textbf{Pass?} & \textbf{Notes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{\#} & \textbf{Usage} & \textbf{Foreground} & \textbf{Background} & \textbf{Ratio} & \textbf{Pass?} & \textbf{Notes} \\
+\midrule
+\endhead
+1  & Body text on white      & \variable{TEXT\_COLOR}        & \texttt{\#FFFFFF} & \ff{c1_ratio}{1.8cm} & \cb{c1_pass} & \ff{c1_notes}{2.4cm} \\[6pt]
+2  & Body text on note bg    & \variable{TEXT\_COLOR}        & \texttt{\#F5F7FA} & \ff{c2_ratio}{1.8cm} & \cb{c2_pass} & \ff{c2_notes}{2.4cm} \\[6pt]
+3  & Link on white           & \variable{LINK\_COLOR}        & \texttt{\#FFFFFF} & \ff{c3_ratio}{1.8cm} & \cb{c3_pass} & \ff{c3_notes}{2.4cm} \\[6pt]
+4  & Link on callout         & \variable{LINK\_COLOR}        & \texttt{\#F5F7FA} & \ff{c4_ratio}{1.8cm} & \cb{c4_pass} & \ff{c4_notes}{2.4cm} \\[6pt]
+5  & Heading on white        & \variable{PRIMARY\_COLOR}     & \texttt{\#FFFFFF} & \ff{c5_ratio}{1.8cm} & \cb{c5_pass} & \ff{c5_notes}{2.4cm} \\[6pt]
+6  & Heading on callout      & \variable{PRIMARY\_COLOR}     & \texttt{\#F5F7FA} & \ff{c6_ratio}{1.8cm} & \cb{c6_pass} & \ff{c6_notes}{2.4cm} \\[6pt]
+7  & Table header text       & \texttt{\#FFFFFF}             & \variable{PRIMARY\_COLOR} & \ff{c7_ratio}{1.8cm} & \cb{c7_pass} & \ff{c7_notes}{2.4cm} \\[6pt]
+8  & Caption text            & \variable{MUTED\_TEXT\_COLOR} & \texttt{\#FFFFFF} & \ff{c8_ratio}{1.8cm} & \cb{c8_pass} & \ff{c8_notes}{2.4cm} \\[6pt]
+9  & Focus outline           & \variable{ACCENT\_COLOR}      & \texttt{\#FFFFFF} & \ff{c9_ratio}{1.8cm} & \cb{c9_pass} & \ff{c9_notes}{2.4cm} \\[6pt]
+10 & Warning border          & \variable{WARNING\_COLOR}     & \texttt{\#FFFFFF} & \ff{c10_ratio}{1.8cm} & \cb{c10_pass} & \ff{c10_notes}{2.4cm} \\[6pt]
+11 & Success border          & \variable{SUCCESS\_COLOR}     & \texttt{\#FFFFFF} & \ff{c11_ratio}{1.8cm} & \cb{c11_pass} & \ff{c11_notes}{2.4cm} \\[6pt]
+12 & Definition callout      & \variable{SECONDARY\_COLOR}   & \texttt{\#F5F7FA} & \ff{c12_ratio}{1.8cm} & \cb{c12_pass} & \ff{c12_notes}{2.4cm} \\[6pt]
+\bottomrule
+\end{longtable}
+
+\vspace{0.6em}
+
+Verified by (accessibility reviewer): \ff{pC_reviewer_name}{7cm} \\[8pt]
+Signature: \sig{pC_reviewer_sig}{5cm} \hfill Date: \ff{pC_reviewer_date}{4cm}
+
+\vspace{0.8em}
+
+Effective date: \ff{final_effective_date}{4cm} \hfill Next review date: \ff{final_next_review_date}{4cm}
+
+% ============================================================
+\newpage
+\section*{Appendix --- Python Contrast Verification Script}
+
+Save as \variable{scripts/check\_contrast.py}. Run:
+\texttt{python3 scripts/check\_contrast.py branding.json}
+
+\begin{lstlisting}[language=Python]
+#!/usr/bin/env python3
+import json, sys
+AA_NORMAL, AA_LARGE, AA_NON_TEXT = 4.5, 3.0, 3.0
+
+def hex_to_rgb(h):
+    h = h.lstrip("#")
+    return tuple(int(h[i:i+2], 16) / 255.0 for i in (0, 2, 4))
+
+def relative_luminance(rgb):
+    def channel(c):
+        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+    r, g, b = (channel(c) for c in rgb)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+def ratio(fg, bg):
+    l1 = relative_luminance(hex_to_rgb(fg))
+    l2 = relative_luminance(hex_to_rgb(bg))
+    lighter, darker = max(l1, l2), min(l1, l2)
+    return (lighter + 0.05) / (darker + 0.05)
+
+CHECKS = [
+    ("TEXT_COLOR",       "#FFFFFF", AA_NORMAL,   "Body text on white"),
+    ("TEXT_COLOR",       "#F5F7FA", AA_NORMAL,   "Body text on note bg"),
+    ("LINK_COLOR",       "#FFFFFF", AA_NORMAL,   "Link on white"),
+    ("LINK_COLOR",       "#F5F7FA", AA_NORMAL,   "Link on callout"),
+    ("PRIMARY_COLOR",    "#FFFFFF", AA_NORMAL,   "Heading on white"),
+    ("PRIMARY_COLOR",    "#F5F7FA", AA_NORMAL,   "Heading on callout"),
+    ("PRIMARY_COLOR",    "#FFFFFF", AA_LARGE,    "Table header text"),
+    ("MUTED_TEXT_COLOR", "#FFFFFF", AA_NORMAL,   "Caption text"),
+    ("ACCENT_COLOR",     "#FFFFFF", AA_NON_TEXT, "Focus outline"),
+    ("WARNING_COLOR",    "#FFFFFF", AA_NON_TEXT, "Warning border"),
+    ("SUCCESS_COLOR",    "#FFFFFF", AA_NON_TEXT, "Success border"),
+    ("SECONDARY_COLOR",  "#F5F7FA", AA_NON_TEXT, "Definition callout"),
+]
+
+def main(path):
+    with open(path) as f:
+        values = json.load(f)
+    failures = 0
+    print(f"{'Check':<40}{'Ratio':>8}  {'Min':>5}  Result")
+    print("-" * 68)
+    for key, bg, minimum, label in CHECKS:
+        fg = values.get(key)
+        if not fg:
+            print(f"{label:<40}{'--':>8}  {minimum:>5}  MISSING {key}")
+            failures += 1
+            continue
+        r = ratio(fg, bg)
+        ok = r >= minimum
+        if not ok:
+            failures += 1
+        print(f"{label:<40}{r:>8.2f}  {minimum:>5}  {'OK' if ok else 'FAIL'}")
+    print("-" * 68)
+    print(f"Total failures: {failures}")
+    sys.exit(1 if failures else 0)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python3 check_contrast.py branding.json")
+        sys.exit(2)
+    main(sys.argv[1])
+\end{lstlisting}
+
+\end{document}

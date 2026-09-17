@@ -1,0 +1,38 @@
+name: Build Word Form
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/branding-form.md"
+      - "docs/reference.docx"
+  pull_request:
+    branches: [main]
+    paths:
+      - "docs/branding-form.md"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+
+      - name: Build DOCX
+        run: |
+          if [ -f docs/reference.docx ]; then
+            pandoc docs/branding-form.md \
+              -o docs/branding-form.docx \
+              --reference-doc=docs/reference.docx
+          else
+            pandoc docs/branding-form.md -o docs/branding-form.docx
+          fi
+
+      - name: Upload DOCX
+        uses: actions/upload-artifact@v4
+        with:
+          name: branding-form-docx
+          path: docs/branding-form.docx
+          if-no-files-found: error

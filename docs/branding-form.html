@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>University Branding Variables Form</title>
+<style>
+  :root {
+    --fg: #1f2933;
+    --bg: #ffffff;
+    --muted: #52606d;
+    --border: #d9e2ec;
+    --primary: #0056b3;
+    --primary-hover: #003d80;
+    --bg-soft: #f5f7fa;
+    --bg-field: #fbfdff;
+    --bg-note: #fffbeb;
+    --ok: #15803d;
+    --warn: #b91c1c;
+    --focus: #f2a900;
+    --note-border: #f2a900;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--fg);
+    background: var(--bg);
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 1rem;
+    background: var(--primary);
+    color: #fff;
+    padding: .5rem .9rem;
+    border-radius: 0 0 6px 6px;
+    z-index: 100;
+    text-decoration: none;
+  }
+  .skip-link:focus { top: 0; }
+
+  header.page-header {
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
+  h2 { font-size: 1.2rem; color: var(--primary); margin: 1.75rem 0 .5rem; }
+  h3 { font-size: 1.05rem; margin: 1.25rem 0 .5rem; }
+
+  .lede { color: var(--muted); margin: 0 0 .5rem; }
+
+  .toolbar {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,.97);
+    border-bottom: 1px solid var(--border);
+    margin: -1.5rem -1.5rem 1.5rem;
+    padding: .75rem 1.5rem;
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .toolbar button {
+    font: inherit;
+    padding: .5rem .9rem;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .toolbar button.primary {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  .toolbar button:hover { background: var(--bg); }
+  .toolbar button.primary:hover { background: var(--primary-hover); }
+  .toolbar button:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  .toolbar .status {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: .9rem;
+  }
+
+  fieldset {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin: 0 0 1.25rem;
+  }
+
+  legend {
+    font-weight: 700;
+    color: var(--primary);
+    padding: 0 .4rem;
+    font-size: 1rem;
+  }
+
+  /* ============================================================
+     Field block: label, variable, notes, input
+     ============================================================ */
+  .field {
+    display: grid;
+    grid-template-columns: minmax(14rem, 22rem) 1fr;
+    gap: .4rem 1rem;
+    align-items: start;
+    padding: .75rem 0;
+    border-bottom: 1px solid var(--bg-soft);
+  }
+  .field:last-child { border-bottom: none; }
+
+  .field .field-meta {
+    padding-top: .25rem;
+  }
+
+  .field label {
+    font-weight: 600;
+    display: block;
+  }
+
+  .field .var {
+    display: inline-block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .82rem;
+    color: var(--muted);
+    font-weight: 400;
+    background: var(--bg-soft);
+    padding: .1rem .35rem;
+    border-radius: 3px;
+    margin-top: .25rem;
+  }
+
+  .field .field-control {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+  }
+
+  .notes {
+    font-size: .85rem;
+    line-height: 1.5;
+    color: var(--muted);
+    background: var(--bg-note);
+    border-left: 3px solid var(--note-border);
+    padding: .5rem .75rem;
+    border-radius: 4px;
+    margin-top: .35rem;
+  }
+
+  .notes strong { color: var(--fg); }
+  .notes code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .82rem;
+    background: rgba(0,0,0,.05);
+    padding: .05rem .3rem;
+    border-radius: 3px;
+  }
+
+  input[type="text"],
+  input[type="url"],
+  input[type="email"],
+  textarea,
+  select {
+    font: inherit;
+    width: 100%;
+    padding: .5rem .6rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg-field);
+    color: var(--fg);
+  }
+
+  input[type="text"]:focus,
+  input[type="url"]:focus,
+  input[type="email"]:focus,
+  textarea:focus,
+  select:focus {
+    outline: 3px solid var(--focus);
+    outline-offset: 1px;
+    border-color: var(--primary);
+  }
+
+  input[aria-invalid="true"],
+  textarea[aria-invalid="true"],
+  select[aria-invalid="true"] {
+    border-color: var(--warn);
+    background: #fef2f2;
+  }
+
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .35rem 0;
+  }
+
+  .checkbox-row input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .color-row input[type="text"] {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    max-width: 12rem;
+  }
+
+  .color-input-group {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .color-swatch {
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* ============================================================
+     Contrast table
+     ============================================================ */
+  .contrast-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9rem;
+    margin-top: .75rem;
+  }
+
+  .contrast-table th,
+  .contrast-table td {
+    border: 1px solid var(--border);
+    padding: .5rem .6rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .contrast-table th {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .contrast-table .usage {
+    font-weight: 500;
+  }
+
+  .contrast-table .notes-cell {
+    font-size: .82rem;
+    color: var(--muted);
+    max-width: 24rem;
+  }
+
+  .contrast-result {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .contrast-pass { color: var(--ok); }
+  .contrast-fail { color: var(--warn); }
+
+  .actions-bottom {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .instructions-box {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .instructions-box h2 {
+    margin-top: 0;
+    font-size: 1.05rem;
+  }
+
+  .instructions-box ol {
+    margin: .5rem 0 .5rem 1.25rem;
+    padding: 0;
+  }
+
+  .instructions-box li { margin-bottom: .25rem; }
+
+  .instructions-box .how-to-read {
+    margin-top: .75rem;
+    font-size: .9rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .field {
+      grid-template-columns: 1fr;
+    }
+    .toolbar { position: static; }
+    .contrast-table { font-size: .82rem; }
+    .contrast-table .notes-cell { display: none; }
+  }
+
+  @media print {
+    .toolbar, .actions-bottom, .skip-link { display: none; }
+    body { max-width: none; padding: 0; font-size: 11pt; }
+    fieldset { break-inside: avoid; }
+    .field { break-inside: avoid; }
+    .notes {
+      background: #fff;
+      border-left: 2px solid #999;
+      color: #333;
+    }
+    input, textarea, select {
+      background: #fff !important;
+      border: 1px solid #999 !important;
+    }
+    input[type="text"], input[type="url"], input[type="email"] {
+      border: none !important;
+      border-bottom: 1px solid #999 !important;
+      border-radius: 0 !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to form</a>
+
+<header class="page-header">
+  <h1>University Branding Variables Form</h1>
+  <p class="lede">Mekelle University · Online MBA · Form v1.1</p>
+</header>
+
+<div class="toolbar" role="region" aria-label="Form actions">
+  <button type="button" class="primary" id="btn-export">Export as JSON</button>
+  <button type="button" id="btn-print">Print / Save as PDF</button>
+  <button type="button" id="btn-reset">Reset form</button>
+  <span class="status" id="status" role="status" aria-live="polite"></span>
+</div>
+
+<main id="main">
+
+<!-- ============================================================
+     Section 1 — Identity
+     ============================================================ -->
+<section aria-labelledby="sec-identity">
+  <h2 id="sec-identity">Section 1 — Identity</h2>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-university-name">Official name</label>
+      <span class="var">UNIVERSITY_NAME</span>
+      <div class="notes">
+        Write the full official English name as it appears on the university charter,
+        letterhead, and certificate. <strong>Example:</strong> <code>Mekelle University</code>.
+        Do not use abbreviations here. If the official name includes "The", include it.
+        Confirm with the Office of the President before submitting.
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="text" id="v-university-name" name="UNIVERSITY_NAME" value="Mekelle University" autocomplete="organization">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-university-short">Short form</label>
+      <span class="var">UNIVERSITY_NAME_SHORT</span>
+      <div class="notes">
+        The commonly used short name or abbreviation.
+        <strong>Example:</strong> <code>MU</code>. Used in banners and tight layouts where the
+        full name will not fit. If not needed, write <code>PENDING</code> and give the
+        date the decision will be made.
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="text" id="v-university-short" name="UNIVERSITY_NAME_SHORT" value="MU">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-logo">Primary logo URL</label>
+      <span class="var">LOGO_URL</span>
+      <div class="notes">
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="url" id="v-logo" name="LOGO_URL" placeholder="/static/mu-logo.svg">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-logo-rev">Reversed logo URL</label>
+      <span class="var">LOGO_URL_REVERSED</span>
+      <div class="notes">
+        Light-on-dark version of the logo.
+        <strong>Example:</strong> <code>/static/mu-logo-reversed.svg</code>. Used by the
+        module banner which has a dark background.
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="url" id="v-logo-rev" name="LOGO_URL_REVERSED" placeholder="/static/mu-logo-reversed.svg">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-favicon">Favicon URL</label>
+      <span class="var">FAVICON_URL</span>
+      <div class="notes">
+        Path to the browser tab icon. <strong>Example:</strong> <code>/static/favicon.ico</code>.
+        Usually set at the platform theme level, not per course. If theme-level, write
+        <code>theme-level, not course</code> and give the value already configured.
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="url" id="v-favicon" name="FAVICON_URL" placeholder="/static/favicon.ico">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-footer">Footer copyright</label>
+      <span class="var">FOOTER_TEXT</span>
+      <div class="notes">
+        Exact string for the footer.
+        <strong>Example:</strong> <code>© 2025 Mekelle University. All rights reserved.</code>
+        Confirm whether the year is static or dynamic, and whether "All rights reserved" is
+        required by policy. If the footer must include a contact email, write it on a
+        second line.
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="text" id="v-footer" name="FOOTER_TEXT" value="© Mekelle University">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Section 2 — Color palette
+     ============================================================ -->
+<section aria-labelledby="sec-color">
+  <h2 id="sec-color">Section 2 — Colour palette</h2>
+  <p class="lede">All colours must pass WCAG 2.1 AA. The contrast checker in Part C validates automatically as you type.</p>
+
+  <div class="field color-row">
+    <div class="field-meta">
+      <label for="v-primary">Primary</label>
+      <span class="var">PRIMARY_COLOR</span>
+      <div class="notes">
+        6-digit hex. <strong>Example:</strong> <code>#127DAD</code>. Used for headings,
+        table header backgrounds, and the module banner. Must achieve at least 4.5:1
+        contrast against white when used as a background (Part C row 7). If the university's
+        primary color fails AA, provide a darker approved variant for text use.
+      </div>
+    </div>
+    <div class="field-control">
+      <div class="color-input-group">
+        <input type="text" id="v-primary" name="PRIMARY_COLOR" value="#127DAD" maxlength="7" spellcheck="false">
+        <span class="color-swatch" id="sw-primary" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field color-row">
+    <div class="field-meta">
+      <label for="v-secondary">Secondary</label>
+      <span class="var">SECONDARY_COLOR</span>
+      <div class="notes">
+        6-digit hex. <strong>Example:</strong> <code>#82CFF0</code>. Used for definition
+        callouts. Must pass 3:1 against <code>#F5F7FA</code> as a non-text element.
+        If not defined, write <code>PENDING</code> and note that the primary color will be used.
+      </div>
+    </div>
+    <div class="field-control">
+      <div class="color-input-group">
+        <input type="text" id="v-secondary" name="SECONDARY_COLOR" value="#82CFF0" maxlength="7" spellcheck="false">
+        <span class="color-swatch" id="sw-secondary" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field color-row">
+    <div class="field-meta">
+      <label for="v-accent">Accent</label>
+      <span class="var">ACCENT_COLOR</span>
+      <div class="notes">
+        6-digit hex. <strong>Example:</strong> <code>#F2A900</code>. Used for keyboard focus
+        outlines and important callouts. Must pass at least 3:1 against white and against
+        the primary color. Choose a colour that is distinguishable from both primary and
+        secondary. <strong>Note:</strong> <code>#F2A900</code> fails the focus-outline check
+        at 2.2:1 — choose a darker accent.
+      </div>
+    </div>
+    <div class="field-control">
+      <div class="color-input-group">
+        <input type="text" id="v-accent" name="ACCENT_COLOR" value="#F2A900" maxlength="7" spellcheck="false">
+        <span class="color-swatch" id="sw-accent" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field color-row">
+    <div class="field-meta">
+      <label for="v-link">Link</label>
+      <span class="var">LINK_COLOR</span>
+      <div class="notes">
+        6-digit hex. <strong>Example:</strong> <code>#0056B3</code>. Must pass 4.5:1 against
+        white and against <code>#F5F7FA</code>. Do not use the primary color unless it passes
+        both checks. Provide a separate value if the primary is too light for link text.
+      </div>
+    </div>
+    <div class="field-control">
+      <div class="color-input-group">
+        <input type="text" id="v-link" name="LINK_COLOR" value="#0056B3" maxlength="7" spellcheck="false">
+        <span class="color-swatch" id="sw-link" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field color-row">
+    <div class="field-meta">
+      <label for="v-link-hover">Link hover</label>
+      <span class="var">LINK_HOVER_COLOR</span>
+      <div class="notes">
+        6-digit hex. <strong>Example:</strong> <code>#127DAD</code>. Colour of the link on
+        hover or keyboard focus. Must be perceptibly different from <code>LINK_COLOR</code>.
+        If no change is desired, write <code>same as LINK_COLOR</code>.
+      </div>
+    </div>
+    <div class="field-control">
+      <div class="color-input-group">
+        <input type="text" id="v-link-hover" name="LINK_HOVER_COLOR" value="#127DAD" maxlength="7" spellcheck="false">
+        <span class="color-swatch" id="sw-link-hover" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field color-row">
+    <div class="field-meta">
+      <label for="v-warning">Warning border</label>
+      <span class="var">WARNING_COLOR</span>
+      <div class="notes">
+        6-digit hex. <strong>Example:</strong> <code>#b91c1c</code>. Left border of warning
+        callouts. Must pass 3:1 against white. Always used with an icon and label, so
+        colour alone does not carry meaning.
+      </div>
+    </div>
+    <div class="field-control">
+      <div class="color-input-group">
+        <input type="text" id="v-warning" name="WARNING_COLOR" value="#b91c1c" maxlength="7" spellcheck="false">
+        <span class="color-swatch" id="sw-warning" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field color-row">
+    <div class="field-meta">
+      <label for="v-success">Success border</label>
+      <span class="var">SUCCESS_COLOR</span>
+      <div class="notes">
+        6-digit hex. <strong>Example:</strong> <code>#15803d</code>. Must pass 3:1 against
+        white. Same accessibility rules as the warning border.
+      </div>
+    </div>
+    <div class="field-control">
+      <div class="color-input-group">
+        <input type="text" id="v-success" name="SUCCESS_COLOR" value="#15803d" maxlength="7" spellcheck="false">
+        <span class="color-swatch" id="sw-success" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field color-row">
+    <div class="field-meta">
+      <label for="v-text">Body text</label>
+      <span class="var">TEXT_COLOR</span>
+      <div class="notes">
+        6-digit hex. <strong>Example:</strong> <code>#1f2933</code>. Must pass 4.5:1 against
+        white and against <code>#F5F7FA</code>. Avoid pure black unless required by policy.
+      </div>
+    </div>
+    <div class="field-control">
+      <div class="color-input-group">
+        <input type="text" id="v-text" name="TEXT_COLOR" value="#1f2933" maxlength="7" spellcheck="false">
+        <span class="color-swatch" id="sw-text" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field color-row">
+    <div class="field-meta">
+      <label for="v-muted">Muted text</label>
+      <span class="var">MUTED_TEXT_COLOR</span>
+      <div class="notes">
+        6-digit hex. <strong>Example:</strong> <code>#52606d</code>. Must pass 4.5:1 against
+        white. Do not use a lighter grey; it will fail AA.
+      </div>
+    </div>
+    <div class="field-control">
+      <div class="color-input-group">
+        <input type="text" id="v-muted" name="MUTED_TEXT_COLOR" value="#52606d" maxlength="7" spellcheck="false">
+        <span class="color-swatch" id="sw-muted" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field color-row">
+    <div class="field-meta">
+      <label for="v-border">Border</label>
+      <span class="var">BORDER_COLOR</span>
+      <div class="notes">
+        6-digit hex. <strong>Example:</strong> <code>#d9e2ec</code>. Decorative; AA contrast
+        not required. Choose a value visible on both white and <code>#F5F7FA</code>.
+      </div>
+    </div>
+    <div class="field-control">
+      <div class="color-input-group">
+        <input type="text" id="v-border" name="BORDER_COLOR" value="#d9e2ec" maxlength="7" spellcheck="false">
+        <span class="color-swatch" id="sw-border" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Section 3 — Typography
+     ============================================================ -->
+<section aria-labelledby="sec-type">
+  <h2 id="sec-type">Section 3 — Typography</h2>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-font-body">Body font stack</label>
+      <span class="var">FONT_FAMILY</span>
+      <div class="notes">
+        CSS font stack. <strong>Example:</strong> <code>"Open Sans", Arial, Helvetica, sans-serif</code>.
+        Always include a generic fallback. If the primary font is not a system font,
+        attach a licence file to this form. Do not list a font without web-embedding rights.
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="text" id="v-font-body" name="FONT_FAMILY" value="Arial, Helvetica, sans-serif">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-font-heading">Heading font stack</label>
+      <span class="var">FONT_FAMILY_HEADING</span>
+      <div class="notes">
+        CSS font stack. <strong>Example:</strong> <code>"Merriweather", Georgia, serif</code>.
+        If headings use the body font, write <code>same as FONT_FAMILY</code> or leave blank.
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="text" id="v-font-heading" name="FONT_FAMILY_HEADING">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-font-mono">Monospace stack</label>
+      <span class="var">FONT_FAMILY_MONO</span>
+      <div class="notes">
+        CSS font stack for code and file listings.
+        <strong>Example:</strong> <code>Menlo, Consolas, "Courier New", monospace</code>.
+        Usually safe to leave at the default.
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="text" id="v-font-mono" name="FONT_FAMILY_MONO" value="Menlo, Consolas, monospace">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-font-lic">Font licence</label>
+      <span class="var">FONT_LICENSE</span>
+      <div class="notes">
+        Select one. If commercial, attach the licence PDF and note permitted page views
+        or domains. If PENDING, give the date the licence will be confirmed.
+      </div>
+    </div>
+    <div class="field-control">
+      <select id="v-font-lic" name="FONT_LICENSE">
+        <option value="">Select…</option>
+        <option>Open Font License</option>
+        <option>Commercial</option>
+        <option>System font</option>
+        <option>Public domain</option>
+        <option>PENDING</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-font-size">Base font size</label>
+      <span class="var">BASE_FONT_SIZE</span>
+      <div class="notes">
+        <strong>Example:</strong> <code>1rem</code> (16px). Do not go below 1rem; smaller
+        sizes fail WCAG 2.1 AA readability. If university policy specifies a different base,
+        confirm it is at least 16px.
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="text" id="v-font-size" name="BASE_FONT_SIZE" value="1rem">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Section 4 — Header and footer
+     ============================================================ -->
+<section aria-labelledby="sec-header">
+  <h2 id="sec-header">Section 4 — Header and footer</h2>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-header-style">Header border treatment</label>
+      <span class="var">HEADER_STYLE</span>
+      <div class="notes">
+        CSS border for content headings. <strong>Example:</strong>
+        <code>border-bottom: 2px solid #F2A900</code>. Applies to headings inside course
+        content, not the platform header. Do not use colours that fail AA as a non-text
+        element against white.
+      </div>
+    </div>
+    <div class="field-control">
+      <input type="text" id="v-header-style" name="HEADER_STYLE" value="border-bottom: 2px solid #F2A900">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-header-logo">Header logo position</label>
+      <span class="var">HEADER_LOGO_POSITION</span>
+      <div class="notes">
+        Select one. <strong>Example:</strong> <code>left</code>. Controls the MU logo
+        position in the course banner block. The platform header is themed separately.
+      </div>
+    </div>
+    <div class="field-control">
+      <select id="v-header-logo" name="HEADER_LOGO_POSITION">
+        <option value="">Select…</option>
+        <option>left</option>
+        <option>center</option>
+        <option>right</option>
+        <option>none</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-footer-logo">Footer logo position</label>
+      <span class="var">FOOTER_LOGO_POSITION</span>
+      <div class="notes">
+        Select one. <strong>Example:</strong> <code>right</code>. The platform footer is
+        themed separately.
+      </div>
+    </div>
+    <div class="field-control">
+      <select id="v-footer-logo" name="FOOTER_LOGO_POSITION">
+        <option value="">Select…</option>
+        <option>left</option>
+        <option>center</option>
+        <option>right</option>
+        <option>none</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-meta">
+      <label for="v-footer-links">Footer links</label>
+      <span class="var">FOOTER_LINKS</span>
+      <div class="notes">
+        One per line, format <code>Label | URL</code>.
+        <strong>Example:</strong> <code>Privacy policy | https://www.mu.edu.et/privacy</code>.
+        Include only links approved for public display. Do not include social media unless
+        policy permits. If no footer links, write <code>none</code>.
+      </div>
+    </div>
+    <div class="field-control">
+      <textarea id="v-footer-links" name="FOOTER_LINKS" rows="4"></textarea>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Part C — Contrast validation
+     ============================================================ -->
+<section aria-labelledby="sec-contrast">
+  <h2 id="sec-contrast">Part C — Contrast validation</h2>
+  <p class="lede">
+    Live WCAG 2.1 AA check. Ratios update as you edit colours in Section 2.
+    Thresholds: normal text ≥ 4.5, large text ≥ 3, non-text ≥ 3.
+  </p>
+
+  <table class="contrast-table">
+    <thead>
+      <tr>
+        <th scope="col">Usage</th>
+        <th scope="col">Foreground</th>
+        <th scope="col">Background</th>
+        <th scope="col">Ratio</th>
+        <th scope="col">Result</th>
+        <th scope="col">Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="usage">Body text on white</td>
+        <td>TEXT_COLOR</td>
+        <td>#FFFFFF</td>
+        <td class="contrast-result" data-check="text,#FFFFFF,4.5">—</td>
+        <td class="contrast-result" data-result="text,#FFFFFF,4.5">—</td>
+        <td class="notes-cell">Minimum 4.5:1. Example: <code>#1f2933</code> on <code>#FFFFFF</code> = 14.5:1 (pass).</td>
+      </tr>
+      <tr>
+        <td class="usage">Body text on note bg</td>
+        <td>TEXT_COLOR</td>
+        <td>#F5F7FA</td>
+        <td class="contrast-result" data-check="text,#F5F7FA,4.5">—</td>
+        <td class="contrast-result" data-result="text,#F5F7FA,4.5">—</td>
+        <td class="notes-cell">Minimum 4.5:1. Example: <code>#1f2933</code> on <code>#F5F7FA</code> = 13.8:1 (pass).</td>
+      </tr>
+      <tr>
+        <td class="usage">Link on white</td>
+        <td>LINK_COLOR</td>
+        <td>#FFFFFF</td>
+        <td class="contrast-result" data-check="link,#FFFFFF,4.5">—</td>
+        <td class="contrast-result" data-result="link,#FFFFFF,4.5">—</td>
+        <td class="notes-cell">Minimum 4.5:1. Example: <code>#0056B3</code> on <code>#FFFFFF</code> = 7.0:1 (pass).</td>
+      </tr>
+      <tr>
+        <td class="usage">Link on callout</td>
+        <td>LINK_COLOR</td>
+        <td>#F5F7FA</td>
+        <td class="contrast-result" data-check="link,#F5F7FA,4.5">—</td>
+        <td class="contrast-result" data-result="link,#F5F7FA,4.5">—</td>
+        <td class="notes-cell">Minimum 4.5:1. Same link colour against the callout background.</td>
+      </tr>
+      <tr>
+        <td class="usage">Heading on white</td>
+        <td>PRIMARY_COLOR</td>
+        <td>#FFFFFF</td>
+        <td class="contrast-result" data-check="primary,#FFFFFF,4.5">—</td>
+        <td class="contrast-result" data-result="primary,#FFFFFF,4.5">—</td>
+        <td class="notes-cell">Minimum 4.5:1. Example: <code>#127DAD</code> on <code>#FFFFFF</code> = 4.6:1 (pass, borderline).</td>
+      </tr>
+      <tr>
+        <td class="usage">Heading on callout</td>
+        <td>PRIMARY_COLOR</td>
+        <td>#F5F7FA</td>
+        <td class="contrast-result" data-check="primary,#F5F7FA,4.5">—</td>
+        <td class="contrast-result" data-result="primary,#F5F7FA,4.5">—</td>
+        <td class="notes-cell">Minimum 4.5:1. If it fails, provide a darker heading-only variant.</td>
+      </tr>
+      <tr>
+        <td class="usage">Table header text</td>
+        <td>#FFFFFF</td>
+        <td>PRIMARY_COLOR</td>
+        <td class="contrast-result" data-check="#FFFFFF,primary,3">—</td>
+        <td class="contrast-result" data-result="#FFFFFF,primary,3">—</td>
+        <td class="notes-cell">Minimum 3:1 for large text. White on the primary colour background.</td>
+      </tr>
+      <tr>
+        <td class="usage">Caption text</td>
+        <td>MUTED_TEXT_COLOR</td>
+        <td>#FFFFFF</td>
+        <td class="contrast-result" data-check="muted,#FFFFFF,4.5">—</td>
+        <td class="contrast-result" data-result="muted,#FFFFFF,4.5">—</td>
+        <td class="notes-cell">Minimum 4.5:1. Example: <code>#52606d</code> on <code>#FFFFFF</code> = 7.6:1 (pass).</td>
+      </tr>
+      <tr>
+        <td class="usage">Focus outline</td>
+        <td>ACCENT_COLOR</td>
+        <td>#FFFFFF</td>
+        <td class="contrast-result" data-check="accent,#FFFFFF,3">—</td>
+        <td class="contrast-result" data-result="accent,#FFFFFF,3">—</td>
+        <td class="notes-cell">Minimum 3:1 non-text. Example: <code>#F2A900</code> on <code>#FFFFFF</code> = 2.2:1 (FAIL). Choose a darker accent.</td>
+      </tr>
+      <tr>
+        <td class="usage">Warning border</td>
+        <td>WARNING_COLOR</td>
+        <td>#FFFFFF</td>
+        <td class="contrast-result" data-check="warning,#FFFFFF,3">—</td>
+        <td class="contrast-result" data-result="warning,#FFFFFF,3">—</td>
+        <td class="notes-cell">Minimum 3:1 non-text. Example: <code>#b91c1c</code> on <code>#FFFFFF</code> = 6.4:1 (pass).</td>
+      </tr>
+      <tr>
+        <td class="usage">Success border</td>
+        <td>SUCCESS_COLOR</td>
+        <td>#FFFFFF</td>
+        <td class="contrast-result" data-check="success,#FFFFFF,3">—</td>
+        <td class="contrast-result" data-result="success,#FFFFFF,3">—</td>
+        <td class="notes-cell">Minimum 3:1 non-text. Example: <code>#15803d</code> on <code>#FFFFFF</code> = 5.9:1 (pass).</td>
+      </tr>
+      <tr>
+        <td class="usage">Definition callout</td>
+        <td>SECONDARY_COLOR</td>
+        <td>#F5F7FA</td>
+        <td class="contrast-result" data-check="secondary,#F5F7FA,3">—</td>
+        <td class="contrast-result" data-result="secondary,#F5F7FA,3">—</td>
+        <td class="notes-cell">Minimum 3:1 non-text. Example: <code>#82CFF0</code> on <code>#F5F7FA</code> = 1.5:1 (FAIL). Choose a darker secondary.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="actions-bottom">
+  <button type="button" class="primary" id="btn-export-2">Export as JSON</button>
+  <button type="button" id="btn-print-2">Print / Save as PDF</button>
+</div>
+
+</main>
+
+<script>
+"use strict";
+
+/* ============================================================
+   Colour utilities and WCAG contrast
+   ============================================================ */
+
+function hexToRgb(hex) {
+  let h = hex.trim().replace(/^#/, "");
+  if (h.length === 3) h = h.split("").map(c => c + c).join("");
+  if (!/^[0-9a-fA-F]{6}$/.test(h)) return null;
+  return [
+    parseInt(h.slice(0, 2), 16) / 255,
+    parseInt(h.slice(2, 4), 16) / 255,
+    parseInt(h.slice(4, 6), 16) / 255
+  ];
+}
+
+function luminance(rgb) {
+  const channel = c => c <= 0.03928
+    ? c / 12.92
+    : Math.pow((c + 0.055) / 1.055, 2.4);
+  const [r, g, b] = rgb.map(channel);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+function contrastRatio(a, b) {
+  const la = luminance(a);
+  const lb = luminance(b);
+  const lighter = Math.max(la, lb);
+  const darker  = Math.min(la, lb);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+/* ============================================================
+   Colour field registry
+   ============================================================ */
+
+const colorFields = {
+  primary:      "v-primary",
+  secondary:    "v-secondary",
+  accent:       "v-accent",
+  link:         "v-link",
+  "link-hover": "v-link-hover",
+  warning:      "v-warning",
+  success:      "v-success",
+  text:         "v-text",
+  muted:        "v-muted",
+  border:       "v-border"
+};
+
+function readColor(key) {
+  if (key.startsWith("#")) return hexToRgb(key);
+  const id = colorFields[key];
+  if (!id) return null;
+  const el = document.getElementById(id);
+  if (!el) return null;
+  return hexToRgb(el.value);
+}
+
+function refreshSwatch(key) {
+  const el = document.getElementById(colorFields[key]);
+  const sw = document.getElementById("sw-" + key);
+  if (!el || !sw) return;
+  const rgb = hexToRgb(el.value);
+  sw.style.background = rgb ? el.value : "transparent";
+  el.setAttribute("aria-invalid", rgb ? "false" : "true");
+}
+
+function refreshContrast() {
+  document.querySelectorAll("[data-check]").forEach(cell => {
+    const spec = cell.getAttribute("data-check");
+    const [fgKey, bgKey, threshold] = spec.split(",");
+    const fg = readColor(fgKey);
+    const bg = readColor(bgKey);
+    const resultCell = document.querySelector('[data-result="' + spec + '"]');
+    if (!fg || !bg || !resultCell) {
+      cell.textContent = "—";
+      if (resultCell) resultCell.textContent = "—";
+      return;
+    }
+    const ratio = contrastRatio(fg, bg);
+    const min = parseFloat(threshold);
+    const pass = ratio >= min;
+    cell.textContent = ratio.toFixed(2) + " : 1";
+    resultCell.textContent = pass ? "PASS" : "FAIL";
+    resultCell.className = "contrast-result " +
+      (pass ? "contrast-pass" : "contrast-fail");
+  });
+}
+
+function refreshAllSwatches() {
+  Object.keys(colorFields).forEach(refreshSwatch);
+}
+
+/* ============================================================
+   Live updates
+   ============================================================ */
+
+Object.keys(colorFields).forEach(key => {
+  const el = document.getElementById(colorFields[key]);
+  if (!el) return;
+  el.addEventListener("input", () => {
+    refreshSwatch(key);
+    refreshContrast();
+    saveState();
+  });
+});
+
+document.querySelectorAll("input, textarea, select").forEach(el => {
+  el.addEventListener("input", saveState);
+  el.addEventListener("change", saveState);
+});
+
+/* ============================================================
+   Local storage autosave
+   ============================================================ */
+
+const STORAGE_KEY = "mu-mba-branding-form-v1";
+
+function saveState() {
+  const data = collect();
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    setStatus("Draft saved locally");
+  } catch (e) {}
+}
+
+function loadState() {
+  let raw;
+  try { raw = localStorage.getItem(STORAGE_KEY); } catch (e) { return; }
+  if (!raw) return;
+  let data;
+  try { data = JSON.parse(raw); } catch (e) { return; }
+  Object.keys(data).forEach(name => {
+    if (name === "__meta") return;
+    const el = document.querySelector('[name="' + name + '"]');
+    if (!el) return;
+    if (el.type === "checkbox") el.checked = !!data[name];
+    else el.value = data[name];
+  });
+  refreshAllSwatches();
+  refreshContrast();
+  setStatus("Restored saved draft");
+}
+
+function clearState() {
+  try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+}
+
+/* ============================================================
+   Collect and export
+   ============================================================ */
+
+function collect() {
+  const data = {};
+  document.querySelectorAll("[name]").forEach(el => {
+    if (el.type === "checkbox") data[el.name] = el.checked;
+    else data[el.name] = el.value;
+  });
+  data.__meta = {
+    form: "mu-mba-branding-form",
+    version: "1.1",
+    exported_at: new Date().toISOString()
+  };
+  return data;
+}
+
+function exportJson() {
+  const data = collect();
+  const blob = new Blob([JSON.stringify(data, null, 2)], {
+    type: "application/json"
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  const stamp = new Date().toISOString().slice(0, 10);
+  a.href = url;
+  a.download = "branding-variables-" + stamp + ".json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  setStatus("Exported JSON");
+}
+
+function printForm() { window.print(); }
+
+function resetForm() {
+  if (!confirm("Clear all values and start over?")) return;
+  clearState();
+  document.querySelectorAll("input, textarea, select").forEach(el => {
+    if (el.type === "checkbox") el.checked = false;
+    else if (el.readOnly) return;
+    else if (el.tagName === "SELECT") el.selectedIndex = 0;
+    else el.value = "";
+  });
+  const defaults = {
+    "UNIVERSITY_NAME": "Mekelle University",
+    "UNIVERSITY_NAME_SHORT": "MU",
+    "FOOTER_TEXT": "© Mekelle University",
+    "PRIMARY_COLOR": "#127DAD",
+    "SECONDARY_COLOR": "#82CFF0",
+    "ACCENT_COLOR": "#F2A900",
+    "LINK_COLOR": "#0056B3",
+    "LINK_HOVER_COLOR": "#127DAD",
+    "WARNING_COLOR": "#b91c1c",
+    "SUCCESS_COLOR": "#15803d",
+    "TEXT_COLOR": "#1f2933",
+    "MUTED_TEXT_COLOR": "#52606d",
+    "BORDER_COLOR": "#d9e2ec",
+    "FONT_FAMILY": "Arial, Helvetica, sans-serif",
+    "FONT_FAMILY_MONO": "Menlo, Consolas, monospace",
+    "BASE_FONT_SIZE": "1rem",
+    "OPEN_EDX_VERSION": "Teak",
+    "HEADER_STYLE": "border-bottom: 2px solid #F2A900"
+  };
+  Object.keys(defaults).forEach(name => {
+    const el = document.querySelector('[name="' + name + '"]');
+    if (el) el.value = defaults[name];
+  });
+  refreshAllSwatches();
+  refreshContrast();
+  setStatus("Form reset");
+}
+
+/* ============================================================
+   Status line
+   ============================================================ */
+
+let statusTimer = null;
+function setStatus(msg) {
+  const el = document.getElementById("status");
+  if (!el) return;
+  el.textContent = msg;
+  if (statusTimer) clearTimeout(statusTimer);
+  statusTimer = setTimeout(() => { el.textContent = ""; }, 2500);
+}
+
+/* ============================================================
+   Wire up
+   ============================================================ */
+
+document.getElementById("btn-export").addEventListener("click", exportJson);
+document.getElementById("btn-export-2").addEventListener("click", exportJson);
+document.getElementById("btn-print").addEventListener("click", printForm);
+document.getElementById("btn-print-2").addEventListener("click", printForm);
+document.getElementById("btn-reset").addEventListener("click", resetForm);
+
+loadState();
+refreshAllSwatches();
+refreshContrast();
+</script>
+
+</body>
+</html>

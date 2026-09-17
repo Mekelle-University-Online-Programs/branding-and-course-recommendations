@@ -1,0 +1,28 @@
+name: Check Contrast
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tests/fixtures/*.json"
+      - "scripts/check_contrast.py"
+      - "branding/mu-mba-brand.css"
+  pull_request:
+    branches: [main]
+    paths:
+      - "tests/fixtures/*.json"
+      - "scripts/check_contrast.py"
+      - "branding/mu-mba-brand.css"
+
+jobs:
+  contrast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run contrast check
+        run: python3 scripts/check_contrast.py tests/fixtures/branding.sample.json
